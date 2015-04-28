@@ -1,0 +1,30 @@
+*{margin:0;padding:0;}
+a{text-decoration:none;}
+body{background:#FFFFFF repeat-x;font-size:12px Aria,"ËÎÌו";width:1400px; margin:0 auto;}
+
+.header{ height:56px; background:url(../image/header_bg.jpg);position:relative;}
+.header ul{position:absolute;left:584px;top:30px;}
+.header ul li{color:#FFFFFF; float:left; font-size:12px;}
+.header ul li a{color:#FFFFFF;}
+
+.nav{ width:166px; height:754px; background:#e3effb;position:relative;float:left;}
+.nav ul{margin:-10px 0 0 0;position:absolute;left:7px;top:28px;}
+.nav ul li{ background:url(../image/menu_bt.jpg);width:150px; height:22px; margin:10px 0 0 0; text-align:center; line-height:25px;}
+.nav ul li a{color:#000000;  font-size:12px; font-weight:bold; }
+
+.main{ width:1234px; height:754px;background:#FFFFFF;position:relative; margin:0 0 0 166px; }
+
+.main .k1{ width:1223px; height:43px;position:absolute;left:11px;top:12px; border-bottom:1px solid #b1ceef;}
+.main .k1 p{margin:5px 0 0 0;}
+
+.main .k2{ width:1223px; height:132px;position:absolute;left:11px;top:12px;}
+.main .k2 img{margin:66px 95px 0 100px; float:left;}
+.main .k2 ul{ margin:80px 0 0 0;}
+.main .k2 ul li{ line-height:30px; }
+
+.main .k3{ width:1223px; height:22px;position:absolute;left:22px;top:195px; background:url(../image/k3.jpg);}
+
+.main .k4{ width:1223px; height:557px;position:absolute;left:0;top:220px;}
+.main .k4 ul{margin:65px 0 0 130px;}
+.main .k4 ul li{ line-height:25px;}
+.main .k4 ul li span{color:#880000;}

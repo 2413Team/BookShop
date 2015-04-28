@@ -1,0 +1,11 @@
+*{margin:0 auto;padding:0;}
+body{background:url(../Pic/htdl_bg.jpg);}
+#login{width:513px;height:257px; background:url(../Pic/login_bg.jpg) no-repeat;margin-top:148px; position:relative;}
+#login h1{ text-align:center; line-height:74px; font-size:30px; color:white; font-weight:bold;}
+#login form{margin-top:-4px;}
+#login form #text{width:216px;height:29px;margin-left:185px;margin-top:10px; line-height:29px; text-indent:2px;}
+#login form #text1{width:216px;height:29px;margin-left:185px;margin-top:25px;line-height:29px; text-indent:2px;}
+#login form #button{ background:url(../Pic/dlbox.jpg) no-repeat;width:88px;height:25px;border:none;margin-left:185px;margin-top:26px;}
+#login form #button1{ background:url(../Pic/dlbox.jpg) no-repeat;width:88px;height:25px;border:none;margin-left:32px;}
+#login p{ position:absolute; left:100px;top:91px;}
+#login span{ position:absolute; left:100px; top:146px;}

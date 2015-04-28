@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+
+div.content{width:1080px;height:800px;background:;margin:0 auto;}
+div.content #list{width:228px; height:558px;background:;float:left;border:solid 1px #c8c9c9; margin-top:30px;}
+
+div.content #list ul{margin:0 auto;}
+div.content #list ul li{float:top; line-height:60px;}
+div.content #list ul li a{display:block;text-align: center;color:black;}
+div.content #list ul li a:hover{background:#dfdfdf; border-left:solid 20px #00a0d8;}
+
+.content .profile{float:left;border:solid 1px #c8c9c9; margin:30px 0 0 10px;width:826px; height:888px;}
+.content .profile .one h2{text-align: center;margin:10px 0 0 0;}
+.content .profile .one h4{text-indent: 20px;line-height:35px;}
+.content .profile .one p{font-size:14px;line-height:20px;margin:10px 0 0 20px;}
+
+.content .profile .two h4{text-indent: 20px;line-height:35px;margin:10px 0 0 0;}
+.content .profile .two p{font-size:14px;line-height:20px;margin:0 0 0 20px;}
+
+.content .profile .three h4{text-indent: 20px;line-height:35px;margin:10px 0 0 0;}
+.content .profile .three p{font-size:14px;line-height:20px;margin:0 0 0 20px;}
+
+.content .profile .four h4{text-indent: 20px;line-height:35px;margin:10px 0 0 0;}
+.content .profile .four p{font-size:14px;line-height:20px;margin:0 0 0 20px;}
+
+.content .profile .five h4{text-indent: 20px;line-height:35px;margin:10px 0 0 0;}
+.content .profile .five p{font-size:14px;line-height:20px;margin:0 0 0 20px;}

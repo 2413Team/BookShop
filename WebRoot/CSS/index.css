@@ -1,0 +1,35 @@
+http://localhost:8080/newBookShopWeb/index.jsp@CHARSET "UTF-8";
+*{margin:0 ;padding:0;}
+a{text-decoration: none;}
+ul{ list-style:none;}
+
+div.content{width:1080px;height:800px;background:;margin:0 auto;}
+div.content #categorylist{width:228px; height:388px;background:;float:left;border:solid 1px #c8c9c9;}
+div.content #categorylist .sback{width:228px;height:35px;background:#00a0d8;line-height:35px; text-align: center;color:white;}
+
+div.content #lunbo{width:598px;height:388px;margin:0 10px 0 10px;background:;float:left;border:solid 1px #c8c9c9;}
+img { border: 0px; }
+.slides { width: 598px; height: 388px; overflow: hidden; position: relative; }
+.slide-image { margin: 0px; padding: 0px; width: 598px; overflow: hidden; list-style: none; }
+.slide-image img { width: 598px; height: 388px; }
+.slide-image li { display: none; }
+.slide-image li.cur { display: block; }
+.slide-li { margin: 0px; padding: 0px; left: 0px; bottom: 0px; position: absolute; }
+.slide-li li { margin: 0px; padding: 0px; width: 119.5px; height: 8px; float: left; overflow: hidden; list-style: none; }
+.slide-li a { width: 190px; height: 10px; color: #000; font-size: 12px; display: block; }
+.slide-li a:hover { color: #F00; text-decoration: none; }
+.op li { background: #999999; filter: alpha(opacity=60); opacity: 0.6; }
+.op li.cur { background: #666666; }
+.slide-txt span { display: none; }
+
+div.content #kefu{width:228px;height:388px;background:;float:left; border:solid 1px #c8c9c9;}
+div.content #kefu .sback{width:228px;height:35px;background:#00a0d8;line-height:35px; text-align: center;color:white;}
+
+div.content #hotbook{width:348px; height:398px; float:left;background:;margin-top:10px;border:solid 1px #c8c9c9;}
+div.content #hotbook .bback{width:348px;height:35px;background:#00a0d8;line-height:35px; text-align: center;color:white;}
+
+div.content #newbook{width:348px; height:398px; float:left;background:;margin:10px 15px 0 15px;border:solid 1px #c8c9c9;}
+div.content #newbook .bback{width:348px;height:35px;background:#00a0d8;line-height:35px; text-align: center;color:white;}
+
+div.content #tjbook{width:348px; height:398px; float:left;background:;margin-top:10px;border:solid 1px #c8c9c9;}
+div.content #tjbook .bback{width:348px;height:35px;background:#00a0d8;line-height:35px; text-align: center;color:white;}

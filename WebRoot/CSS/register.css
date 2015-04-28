@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+*{margin:0;padding:0}
+body{font-size: 18px; font-family:"微软雅黑"; }
+.all{width:80%; margin:0 auto;}
+#title{margin-bottom: -20px}
+.register{width:1080px; height:450px; margin-left: 200px;}
+.register form{width:350px; margin-top:50px; margin-left:660px; font-size:16px}
+.register form input#shuru{text-indent:3px; width:400px; height:40px; margin-top:30px; float:left;}
+.register form input.yanzheng{width:100px; float:left; height:25px}
+.register form .img{width:100px; height:32px; float:right;}
+.register form input.button{width:400px;height:50px; margin-top:25px; background-color:#00a7de; border:1px #0381aa solid; color:#fff; font-size:12px; float: left;}
+.register form input.sex{float: left;}
+.register form span{font-size: 12px; color:red; float:left; margin-bottom:-16px;}
+.register form table{margin-bottom:-30px; padding-top:20px;}
+
+.hello {width:351px; height: 530px; background:url("../image/registerHello.png"); float: left; margin-top:35px; margin-left:360px;}
