@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="java.util.*,com.newBookShopWeb.entity.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -27,13 +28,13 @@
          </ul>
     </div>
           <div class="search">
-            <form action="" method="post" id=search name="search">
-                      <input type="text"  value=""  id="text"  name="text"  class="text"/>
-                      <input type="button"  value="搜索"  id="btn"  name="btn"  class="btn"/>
+            <form action="BookServlet?act=get" method="post" id=search name="search">
+                      <input type="text"  value=""  id="text"  name="Name"  class="text"/>
+                      <input type="submit"  value="搜索"  id="btn"  name="btn"  class="btn"/>
             </form>      
       </div> 
       <div class="list">
-      
+      	<%@include file="BookList.jsp" %>
       </div>
        
        <input type="button"  value="增"  id="btn"  name="btn"  class="btnAdd"/>

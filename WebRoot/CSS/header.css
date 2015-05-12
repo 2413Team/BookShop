@@ -5,18 +5,13 @@ ul{ list-style:none;}
 body{width:100%; font-family:"微软雅黑"}
 
 
-div.header{width:100%; height:200px; margin:0 auto; background:#00a0d8;}
-div.header .logo{background:url(../image/logo2.png); display:block; width:200px; height:132px;margin:20px 0 0 25%; float:left;}
-div.header .user ul{float:right;margin:20px 20px 0 0; height:30px; color:#fff}
-div.header .user ul li{float:left; margin-right:5px; font-color:blue;}
-div.header .user a{color:#fff}
+div.header{width:100%; height:180px; margin:0 auto; background: url("../image/testbg.png")  100% 100%; border-bottom: 2px solid #eb3000;}
+div.header .logo{background:url(../image/Logo4.png); display:block; width:200px; height:132px;margin:10px 0 0 8%; float:left;}
+div.header .user{background-color: #f1f1f1; width:100%; float: left; height: 30px;}
+div.header .user ul{float:right;margin:4px 20px 0 0; height:30px; color:#7b6666}
+div.header .user ul li{float:left; margin-right:5px;margin-left:5px; font-color:blue; text-align: center;}
+div.header .user a{color:#7b6666}
 div.header .user a:hover{color:#eb3000; font-weight: bold;}
-div.header .search form{ float:left;margin:85px 0 0 165px}
-div.header .search form .text{width:250px;height:30px; font-size:16px;border:solid 1px #0080c0; float:left;text-indent: 6px;}
-div.header .search form .btn{width:60px;height:30px;border:solid 1px #0080c0;background:#0080c0;color:white;float:left;}
-div.header .nav{width:100%;height:40px;background:#f1f1f1;margin:10px 0 0 0; float:left;}
-div.header .nav ul{margin:0 auto; width:1080px;}
-div.header .nav ul li{float:left; line-height:40px;}
-div.header .nav ul li a{display:block;width:150px; text-align: center;color:black;}
-div.header .nav ul li a:hover{background:#666666; color:#fff}
-div.header .nav ul li.first{margin-left:80px;}
+div.header .search form{ float:left;margin:75px 0 0 17%; }
+div.header .search form .text{width:320px;height:35px; font-size:16px;border:solid 1px #c81623; float:left;text-indent: 6px; text-align: left;}
+div.header .search form .btn{width:60px;height:37px;border:solid 1px #c81623;background:#c81623;color:white;float:left;}

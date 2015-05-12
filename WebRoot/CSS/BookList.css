@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+.booklist{}
+.booklist:HOVER {
+	background-color: #999;
+	color:white;
+}
+.booklist:HOVER a{color:white;}
+.booklist a{color:black;}
+.booklist .unitprice{color:red;}
+.booklist:HOVER .unitprice {
+	color:blue;
+}

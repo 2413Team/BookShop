@@ -9,7 +9,7 @@ body{background:#FFFFFF repeat-x;font-size:12px Aria,"ËÎÌו";width:1400px; margin
 
 .nav{ width:166px; height:754px; background:#e3effb;position:relative;float:left;}
 .nav ul{margin:-10px 0 0 0;position:absolute;left:7px;top:28px;}
-.nav ul li{ background:url(../image/menu_bt.jpg);width:150px; height:22px; margin:10px 0 0 0; text-align:center; line-height:25px;}
+.nav ul li{ background:url(../image/menu_bt.jpg) center;width:150px; height:22px; margin:10px 0 0 0; text-align:center; line-height:25px;}
 .nav ul li a{color:#000000;  font-size:12px; font-weight:bold; }
 
 .main{ width:1234px; height:754px;background:#FFFFFF;position:relative; margin:0 0 0 166px; }

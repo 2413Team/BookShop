@@ -5,63 +5,76 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link REL=stylesheet href="CSS/index.css" type="text/css">  
-<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="js/banner.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="CSS/index.css" />  
 <title>Speed Book</title>
 </head>
-<body>
-       	<div class="content">
-              <div id="categorylist">
-                      <div class="sback">种类列表</div>
-              </div>
-              
-              <div id="lunbo">
-              <div class="slides">
-                <ul class="slide-image">
-                <li class="cur"><a href="#" target="_blank">
-                    <img alt="" src="image/1.jpg" /></a></li>
-                <li><a href="#" target="_blank">
-                    <img alt="" src="image/2.jpg" /></a></li>
-                <li><a href="#" target="_blank">
-                    <img alt="" src="image/3.jpg" /></a></li>
-                <li><a href="#" target="_blank">
-                    <img alt="" src="image/4.jpg" /></a></li>
-                <li><a href="#" target="_blank">
-                    <img alt="" src="image/5.jpg" /></a></li>
-            </ul>
-            <ul class="slide-li op">
-                <li class="cur"></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-            <ul class="slide-li slide-txt">
-                <li class="cur"><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-            </ul>
-        </div>       
-              </div>
-              
-              <div id="kefu">
-                      <div class="sback">客户投诉</div>
-                      
-              </div>
-              <div id="hotbook">
-                      <div class="bback">最热图书</div>
-              </div>
-              <div id="newbook">
-                      <div class="bback">最新图书</div>
-              </div>
-              <div id="tjbook">
-                      <div class="bback">推荐图书</div>
-              </div>
-       </div>
-      
+<body >
+<div class="content">
+	<div class="left" id="kuangjia">
+		<ul>
+			<li><a href="#">test</a></li>
+			<li><a href="#">test</a></li>
+			<li><a href="#">test</a></li>
+			<li><a href="#">test</a></li>
+			<li><a href="#">test</a></li>
+			<li><a href="#">test</a></li>
+			<li><a href="#">test</a></li>
+			<li><a href="#">test</a></li>
+			<li><a href="#">test</a></li>
+			<li><a href="#">test</a></li>
+			<li><a href="#">test</a></li>
+			<li><a href="#">test</a></li>
+			<li><a href="#">test</a></li>
+			<li><a href="#">test</a></li>
+		</ul>
+	</div>
+	
+	<div class="lunbo" id="kuangjia">
+			轮播器	
+	</div>
+	
+	<div class="right" id="kuangjia" >
+		<h1>右</h1>
+	</div>
+	
+	<ul class="main">
+		<p><a href="hotbook.jsp"><h1>热门图书 </h1></a></p>
+		<li>
+			<%for(int i=0;i<8;i++) {%>
+			<div class="booklist">
+				<div class="pic1"><img alt="" src="image/pic1.jpg"  style="float: left;"/></div> 
+				<a href="#" class="title" >标题标题标题标题标题标题标题标题标题标题</a>	
+                <h4 class="author" >作者作者作者作者作者作者作者作者 </h4>
+                <h4 class="unitprice" >￥ 0.00</h4>
+			</div>
+			<% }%>
+		</li>
+		
+		<p><a href="newbook.jsp"><h1>最新图书 </h1></a></p>
+		<li>
+			<%for(int i=0;i<8;i++) {%>
+			<div class="booklist">
+				<div class="pic1"><img alt="" src="image/pic1.jpg"  style="float: left;"/></div> 
+				<a href="#" class="title" >标题标题标题标题标题标题标题标题标题标题</a>	
+                <h4 class="author" >作者作者作者作者作者作者作者作者 </h4>
+                <h4 class="unitprice" >￥ 0.00</h4>
+			</div>
+			<% }%>
+		</li>
+		
+		<p><a href="tjbook.jsp"><h1>推荐图书 </h1></a></p>
+		<li>
+		  	<%for(int i=0;i<8;i++) {%>
+			<div class="booklist">
+				<div class="pic1"><img alt="" src="image/pic1.jpg"  style="float: left;"/></div> 
+				<a href="#" class="title" >标题标题标题标题标题标题标题标题标题标题</a>	
+                <h4 class="author" >作者作者作者作者作者作者作者作者 </h4>
+                <h4 class="unitprice" >￥ 0.00</h4>
+			</div>
+			<% }%>
+		</li>
+	</ul>
+</div>
 </body>
  <%@ include file="footer.jsp" %>
 </html>
