@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.newBookShopWeb.database.DataSourceProvider;
+import com.newBookShopWeb.entity.Book;
 import com.newBookShopWeb.entity.OurUser;
 
 public class AdminDao implements Dao {
@@ -18,6 +19,9 @@ public class AdminDao implements Dao {
 			e.printStackTrace();
 		}
 	}
+	/*
+	 * 实现管理员用户的登陆操作
+	 */
 	@Override
 	public boolean doLogin(OurUser user) {
 		// TODO Auto-generated method stub
@@ -37,9 +41,16 @@ public class AdminDao implements Dao {
 		return false;
 	}
 
+	/*
+	 * 实现管理员用户的注册操作
+	 */
 	@Override
 	public boolean doRegister(OurUser user) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	
+	public boolean addBook(Book book){
+		return true;
 	}
 }

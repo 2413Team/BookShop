@@ -13,13 +13,12 @@ body{background:#FFFFFF repeat-x;font-size:12px Aria,"宋体";width:1400px; marg
 .nav ul li{ background:url(../image/menu_bt.jpg);width:150px; height:22px; margin:10px 0 0 0; text-align:center; line-height:25px;}
 .nav ul li a{color:#000000;  font-size:12px; font-weight:bold; }
 
-.search form {margin:50px 0 0 550px;}
+.search form {margin:50px 0 0 560px;}
 .search form .text{width:250px;height:30px; font-size:16px;border:solid 1px #0080c0; float:left;text-indent: 6px;}
  .search form .btn{width:60px;height:32px;border:solid 1px #0080c0;background:#0080c0;color:white;float:left;}
  
  .list{border:solid 1px #c0c0c0;width:1000px;height:500px;margin:150px 0 0 250px; overflow:auto; font-size: 16px;}
 
- .btnAdd{width:80px;height:32px;margin:50px 0 0 300px;}
+ .btnAdd{width:80px;height:32px;margin:50px 0 0 405px;}
  .btnDel{width:80px;height:32px;margin:50px 0 0 50px;}
  .btnUpt{width:80px;height:32px;margin:50px 0 0 50px;}
- .btnSel{width:80px;height:32px;margin:50px 0 0 50px;} 

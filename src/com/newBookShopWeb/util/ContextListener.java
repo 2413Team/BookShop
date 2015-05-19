@@ -11,6 +11,9 @@ import javax.servlet.annotation.WebListener;
 import javax.sql.DataSource;
 
 import com.newBookShopWeb.database.DataSourceProvider;
+/*
+ * 与数据库相关的配置类，大概。。
+ */
 
 /**
  * Application Lifecycle Listener implementation class ContextListener

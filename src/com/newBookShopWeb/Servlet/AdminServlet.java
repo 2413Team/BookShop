@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.newBookShopWeb.dao.AdminDao;
+import com.newBookShopWeb.entity.Book;
 import com.newBookShopWeb.entity.OurUser;
 
 /**
@@ -20,15 +21,24 @@ public class AdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private AdminDao dao;
     private OurUser user;
+    private Book book;
     private String act;
     public AdminServlet() {
         super();
     }
+    /*
+     * 关于管理员的servlet
+     * act参数对应动作行为
+     * act-login：管理员的登陆操作
+     * act-addbook：管理员添加图书操作
+     */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		act=request.getParameter("act");
 		if(act.equals("login"))
 			doLogin(request, response);
+		if(act.equals("addbook"))
+			addBook(request,response);
 	}
 	
 	protected void doLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -38,11 +48,16 @@ public class AdminServlet extends HttpServlet {
 		user.setLoginId(request.getParameter("LoginId"));
 		user.setLoginPwd(request.getParameter("LoginPwd"));
 		HttpSession session=request.getSession();
-		if(dao.doLogin(user)){
+		if(dao.doLogin(user))
 			session.setAttribute("LoginId", user.getLoginId());
-			response.sendRedirect("adminIndex.jsp");
-		}
-		else
-			response.sendRedirect("adminLogin.jsp");
+		response.sendRedirect("adminLogin.jsp");
+	}
+	
+	protected void addBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		book=new Book();
+		dao=new AdminDao();
+		if(dao.addBook(book))
+			System.out.println("成功"); 
+		response.sendRedirect("adminBook");
 	}
 }

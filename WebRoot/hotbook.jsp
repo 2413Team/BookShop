@@ -13,12 +13,12 @@
 </head>
 <body>
    <div class="big">
-   <c:set var="list" scope="session" value='${dao.manybooklist("clicks")}'/>
+   <c:set var="list" scope="session" value='${dao.manybooklist("clicks",12,1)}'/>
    <c:if test="${list!=null }">
    		<c:forEach items="${list }" var="book">
    				<div class="small">
                 	<div class="pic1"><img alt="" src="image/pic1.jpg"  style="float: left;"/></div>   	
-                		<a href='#?isbn=${book.iSBN}'class="title" >${book.title}</a>	
+                		<a href='#?bookid=${book.id}'class="title" >${book.title}</a>	
                 		<h4 class="author" >${book.author }</h4>
                 		<h4 class="unitprice" >￥${book.unitPrice }</h4>
    				</div>

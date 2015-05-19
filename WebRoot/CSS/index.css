@@ -4,21 +4,19 @@
 }
 .content{
 	margin: 0 auto;
+	width:1280px;
 }
 
 #kuangjia{
-	margin-top:2%;
 	float: left;
 	margin-right: 1%;
 }
 
-
 .left {
 	background-color:#c81623;
 	font-size:24px;
-	width:12%;
+	width:150px;
 	height: 450px;
-	margin-left: 9%;
 }
 .left ul{
 	margin-top: 4%;
@@ -27,6 +25,11 @@
 	display: block;
 	color:white;
 	margin-left:2px;
+	overflow: hidden;
+	height:24px;
+	text-align: left;
+	text-indent: 5px;
+	font-size: 16px;
 }
 .left a:HOVER{
 	background-color: white;
@@ -34,22 +37,55 @@
 }
 
 .lunbo{
-	background:url("../image/testimg.jpg") no-repeat 100% 100%;
-	width:60%;
+	width:900px;
 	height: 450px;
 }
 
+img { border: 0px; }
+.slides { width: 900px; height: 450px; overflow: hidden; position: relative; }
+.slide-pic { margin: 0px; padding: 0px; width: 900px; overflow: hidden; list-style: none; }
+.slide-pic img { width: 900px; height: 450px; }
+.slide-pic li { display: none; }
+.slide-pic li.cur { display: block; }
+.slide-li { margin: 0px; padding: 0px; left: 0px; bottom: 0px; position: absolute; }
+.slide-li li { margin: 0px; padding: 0px; width: 180px; height: 8px; float: left; overflow: hidden; list-style: none; }
+.slide-li a { width: 190px; height: 10px; color: #000; font-size: 12px; display: block; }
+.slide-li a:hover { color: #F00; text-decoration: none; }
+.op li { background: #999999; filter: alpha(opacity=60); opacity: 0.6; }
+.op li.cur { background: #666666; }
+.slide-txt span { display: none; }
+
 .right{
 	background-color: green;
-	width:10%;
+	width:191px;
 	height: 450px;
 }
+
+.right ul{
+	margin-top: 4%;
+}
+
+.right a{
+	display: block;
+	color:white;
+	margin-left:2px;
+	overflow: hidden;
+	height:24px;
+	text-align: left;
+	text-indent: 5px;
+	font-size: 16px;
+}
+
+.right a:HOVER{
+	background-color: white;
+	color: #c81623;
+}
+
 
 .main{
 	display: block;
 	float: left;
-	width:84%;
-	margin-left: 9%;
+	width:1280px;
 	margin-top: 1%;
 }
 
@@ -91,7 +127,7 @@
 }
 
 .main li .booklist .title{
-	width: 130px; 
+	width: 145px;
 	height:90px;
 	margin:10px 0 0 2%;
 	float:left;

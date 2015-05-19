@@ -9,10 +9,11 @@ import java.util.List;
 
 import com.newBookShopWeb.database.DataSourceProvider;
 import com.newBookShopWeb.entity.Categories;
-public class CategoriesDao{
+
+public class PublishersDao {
 	private List<Categories> list;
 	Connection conn;
-	public CategoriesDao(){
+	public PublishersDao(){
 		try {
 			conn=DataSourceProvider.getInstance().getDataSoruce().getConnection();
 		} catch (SQLException e) {
@@ -21,14 +22,14 @@ public class CategoriesDao{
 		}
 	}
 	/*
-	 * 获得所有的图书种类
+	 * 获得所有的图书出版社
 	 */
-	public List<Categories> getCategories(){
+	public List<Categories> getPublishers(){
 		Categories cat;
 		list=new ArrayList<Categories>();
 		try {
 			if(!conn.isClosed()){
-				String sql ="SELECT * FROM categories  LIMIT 18";
+				String sql ="SELECT * FROM publishers  LIMIT 18";
 				PreparedStatement stmt=conn.prepareStatement(sql);
 				ResultSet set=stmt.executeQuery();
 				while(set.next()){

@@ -36,12 +36,11 @@
       <div class="list">
       	<%@include file="BookList.jsp" %>
       </div>
-       
-       <input type="button"  value="增"  id="btn"  name="btn"  class="btnAdd"/>
-       <input type="button"  value="删"  id="btn"  name="btn"  class="btnDel"/>
-       <input type="button"  value="改"  id="btn"  name="btn"  class="btnUpt"/>
-       <input type="button"  value="查"  id="btn"  name="btn"  class="btnSel"/>
-      
+      <form action="AdminServlet">
+       		<input type="submit"  value="增"  id="btn"  name="btn"  class="btnAdd"/>
+       		<input type="submit"  value="删"  id="btn"  name="btn"  class="btnDel"/>
+       		<input type="submit"  value="改"  id="btn"  name="btn"  class="btnUpt"/>
+      </form>
 
 </body>
 </html>

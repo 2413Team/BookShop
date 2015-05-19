@@ -3,6 +3,7 @@ package com.newBookShopWeb.entity;
 import java.io.Serializable;
 
 public class Book implements Serializable {
+	private int id;
 	private String title;
 	private String author;
 	private int publisherId;
@@ -20,6 +21,19 @@ public class Book implements Serializable {
 	public Book(){
 		this. clicks=1;
 	}
+
+	
+	public int getId() {
+		return id;
+	}
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
 
 	public String getTitle() {
 		return title;

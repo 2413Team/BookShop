@@ -17,6 +17,12 @@ public class UserServlet extends HttpServlet {
 	private OurUser user;
 	private UserDao dao;
 	private String act;
+	/*
+	 * 普通用户对应的servlet
+	 * act对应不同的动作
+	 * act-login：普通用户的登陆操作
+	 * act-register：普通用户的注册操作
+	 */
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {

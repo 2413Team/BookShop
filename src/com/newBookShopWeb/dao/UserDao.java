@@ -19,7 +19,9 @@ public class UserDao implements Dao {
 				e.printStackTrace();
 			}
 	}
-	
+	/*
+	 * 实现了普通用户的登陆
+	 */
 	public boolean doLogin(OurUser user){
 		try {
 			if(!conn.isClosed()){
@@ -37,7 +39,9 @@ public class UserDao implements Dao {
 		}
 		return false;
 	}
-	
+	/*
+	 * 实现了普通用户的注册
+	 */
 	public boolean doRegister(OurUser user){
 		try {
 			if(!conn.isClosed()){

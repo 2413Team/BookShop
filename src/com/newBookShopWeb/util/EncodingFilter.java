@@ -11,6 +11,10 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.annotation.WebInitParam;
 
+/*
+ * 改变了传递参数的编码方式
+ */
+
 /**
  * Servlet Filter implementation class encodingFilter
  */

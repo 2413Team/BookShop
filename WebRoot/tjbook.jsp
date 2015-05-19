@@ -13,12 +13,12 @@
 </head>
 <body>
    <div class="big">
-   <c:set var="list" scope="session" value='${dao.manybooklist("unitPrice")}'/>
+   <c:set var="list" scope="session" value='${dao.manybooklist("unitPrice",12,1)}'/>
    <c:if test="${list!=null }">
    		<c:forEach items="${list }" var="book">
    				<div class="small">
                 	<div class="pic1"><img alt="" src="image/pic1.jpg"  style="float: left;"/></div>   	
-                		<a href='#?isbn=${book.iSBN}'class="title" >${book.title}</a>	
+                		<a href='#?bookid=${book.id}'class="title" >${book.title}</a>	
                 		<h4 class="author" >${book.author }</h4>
                 		<h4 class="unitprice" >￥${book.unitPrice }</h4>
    				</div>
@@ -30,7 +30,7 @@
    		<%for(int i=1;i<10;i++){ %>
    			<a href="#?pageNum=<%=i%>"><%=i %></a>
    		<%} %>
-   		<a href="#">下一页</a>
+   		<a href='#?page=1'>总页数为 </a>
    </p>
 </body>
  <%@ include file="footer.jsp" %>

@@ -20,7 +20,7 @@
       </div>  
       <div class="search">
             <a href="index.jsp"  class="logo"></a> 
-            <form action="BookServlet?act=findbook" method="post" id=search >
+            <form action="BookServlet?act=findbook&page=1" method="post" id=search >
                       <input type="text"  id="text"  name="key"  class="text"/>
                       <input type="submit"  value="搜索"  id="btn"  name="btn"  class="btn"/>
             </form>      

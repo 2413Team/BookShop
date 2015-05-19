@@ -20,15 +20,35 @@ public class BookServlet extends HttpServlet {
 	private String act;
 	private BookDao dao;
 	private Book book;
+	
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doPost(req, resp);
+	}
+	
+	/*
+	 * 图书相关的servlet
+	 * act对应不一样的行为
+	 * act-get：通过书名查询图书，此行为应该放在AdminServlet里面去，而且方法冗余需要修改
+	 * act-findbook：查询图书动作
+	 * act-catefindbook：通过种类查询图书动作
+	 * act-pubfindbook：通过出版社查询图书动作
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		act=request.getParameter("act");
+		HttpSession out=request.getSession();
+		out.setAttribute("pageAct", act);
 		if(act.equals("get")){
 			getBookByName(request, response);
 		}
 		if(act.equals("findbook")){
 			findBook(request,response);
 		}
-			
+		if(act.equals("catefindbook"))
+			catefindbook(request, response);
+		if(act.equals("pubfindbook"))
+			pubfindbook(request,response);
 	}
 	protected void getBookByName(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		dao=new BookDao();
@@ -38,14 +58,48 @@ public class BookServlet extends HttpServlet {
 		out.setAttribute("List", list);
 		response.sendRedirect("adminBook.jsp");
 	}
+	
 	protected void findBook(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		System.out.println("执行了操作");
 		dao=new BookDao();
 		List<Book> list =new ArrayList<Book>();
-		list=dao.findBook(request.getParameter("key"));
-		System.out.println(list.get(0).getTitle());
+		int page=Integer.parseInt(request.getParameter("page"));
+		String key=request.getParameter("key");
+		key=new String(key.getBytes("iso-8859-1"),"gb2312");
+		System.out.println(key);
+		list=dao.findBook(key,12,page);
 		HttpSession out=request.getSession();
 		out.setAttribute("List", list);
+		out.setAttribute("page", page);
+		out.setAttribute("key", key);
 		response.sendRedirect("findbookSuccess.jsp");
 	}
+	
+	protected void catefindbook(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		dao=new BookDao();
+		String id=request.getParameter("id");
+		System.out.println(id);
+		List<Book> list=new ArrayList<Book>();
+		int page=Integer.parseInt(request.getParameter("page"));
+		list=dao.getBookByCId(id,12,page);
+		HttpSession out=request.getSession();
+		out.setAttribute("List", list);
+		out.setAttribute("page", page);
+		out.setAttribute("id", id);
+		response.sendRedirect("findbookSuccess.jsp");
+	}
+	
+	protected void pubfindbook(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		dao=new BookDao();
+		String id=request.getParameter("id");
+		System.out.println(id);
+		List<Book> list=new ArrayList<Book>();
+		int page=Integer.parseInt(request.getParameter("page"));
+		list=dao.getBookByPId(id,12,page);
+		HttpSession out=request.getSession();
+		out.setAttribute("List", list);
+		out.setAttribute("page", page);
+		out.setAttribute("id", id);
+		response.sendRedirect("findbookSuccess.jsp");
+	}
+
 }

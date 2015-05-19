@@ -1,7 +1,9 @@
 package com.newBookShopWeb.database;
 
 import javax.sql.DataSource;
-
+/*
+ * 读db.properties获取数据库连接的说！
+ */
 public class DataSourceProvider {
 	private DataSource ds;
 	private static DataSourceProvider instance;

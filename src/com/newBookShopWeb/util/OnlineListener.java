@@ -4,6 +4,10 @@ import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
+/*
+ * 用来统计人数来着？？？
+ */
+
 /**
  * Application Lifecycle Listener implementation class OnlineListener
  *

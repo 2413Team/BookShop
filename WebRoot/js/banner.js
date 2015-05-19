@@ -3,7 +3,7 @@ jQuery(function ($) {
         var defaultOpts = { interval: 5000, fadeInTime: 300, fadeOutTime: 200 };
         var _titles = $("ul.slide-txt li");
         var _titles_bg = $("ul.op li");
-        var _bodies = $("ul.slide-image li");
+        var _bodies = $("ul.slide-pic li");
         var _count = _titles.length;
         var _current = 0;
         var _intervalID = null;
