@@ -95,12 +95,10 @@ public class BookDao {
 		String sql;
 		try {
 			if(!conn.isClosed()){
-				System.out.println(type);
 				if(type.equals("qunatity"))
 					sql="SELECT b.* from orderbook o,books b where b.id=o.bookid GROUP BY o.BookID order by sum(o.Quantity) desc";
 				else
 					sql ="SELECT * FROM books ORDER BY "+type+" DESC";
-				System.out.println(sql);
 				Statement stmt=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
 				ResultSet set=stmt.executeQuery(sql);
 				if(page!=1)
