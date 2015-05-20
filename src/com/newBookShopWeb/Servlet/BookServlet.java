@@ -39,16 +39,22 @@ public class BookServlet extends HttpServlet {
 		act=request.getParameter("act");
 		HttpSession out=request.getSession();
 		out.setAttribute("pageAct", act);
-		if(act.equals("get")){
+		if(act.equals("get"))
 			getBookByName(request, response);
-		}
-		if(act.equals("findbook")){
+		if(act.equals("findbook"))
 			findBook(request,response);
-		}
 		if(act.equals("catefindbook"))
 			catefindbook(request, response);
 		if(act.equals("pubfindbook"))
 			pubfindbook(request,response);
+		if(act.equals("hotbook"))
+			hotbook(request,response);
+		if(act.equals("newbook"))
+			newbook(request,response);
+		if(act.equals("tjbook"))
+			tjbook(request,response);
+		if(act.equals("quantitybook"))
+			quantitybook(request,response);
 	}
 	protected void getBookByName(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		dao=new BookDao();
@@ -102,4 +108,59 @@ public class BookServlet extends HttpServlet {
 		response.sendRedirect("findbookSuccess.jsp");
 	}
 
+	protected void hotbook(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		dao=new BookDao();
+		String id=request.getParameter("id");
+		System.out.println(id);
+		List<Book> list=new ArrayList<Book>();
+		int page=Integer.parseInt(request.getParameter("page"));
+		list=dao.manybooklist("clicks", 12, page);
+		HttpSession out=request.getSession();
+		out.setAttribute("List", list);
+		out.setAttribute("page", page);
+		out.setAttribute("id", id);
+		response.sendRedirect("findbookSuccess.jsp");
+	}
+	
+	protected void newbook(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		dao=new BookDao();
+		String id=request.getParameter("id");
+		System.out.println(id);
+		List<Book> list=new ArrayList<Book>();
+		int page=Integer.parseInt(request.getParameter("page"));
+		list=dao.manybooklist("publishdate", 12, page);
+		HttpSession out=request.getSession();
+		out.setAttribute("List", list);
+		out.setAttribute("page", page);
+		out.setAttribute("id", id);
+		response.sendRedirect("findbookSuccess.jsp");
+	}
+	
+	protected void tjbook(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		dao=new BookDao();
+		String id=request.getParameter("id");
+		System.out.println(id);
+		List<Book> list=new ArrayList<Book>();
+		int page=Integer.parseInt(request.getParameter("page"));
+		list=dao.manybooklist("unitprice", 12, page);
+		HttpSession out=request.getSession();
+		out.setAttribute("List", list);
+		out.setAttribute("page", page);
+		out.setAttribute("id", id);
+		response.sendRedirect("findbookSuccess.jsp");
+	}
+	
+	protected void quantitybook(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		dao=new BookDao();
+		String id=request.getParameter("id");
+		System.out.println(id);
+		List<Book> list=new ArrayList<Book>();
+		int page=Integer.parseInt(request.getParameter("page"));
+		list=dao.manybooklist("qunatity", 12, page);
+		HttpSession out=request.getSession();
+		out.setAttribute("List", list);
+		out.setAttribute("page", page);
+		out.setAttribute("id", id);
+		response.sendRedirect("findbookSuccess.jsp");
+	}
 }

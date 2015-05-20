@@ -92,9 +92,15 @@ public class BookDao {
 	public List<Book> manybooklist(String type,int count,int page){
 		Book book;
 		List<Book> list=new ArrayList<Book>();
+		String sql;
 		try {
 			if(!conn.isClosed()){
-				String sql ="SELECT * FROM books ORDER BY "+type+" DESC";
+				System.out.println(type);
+				if(type.equals("qunatity"))
+					sql="SELECT b.* from orderbook o,books b where b.id=o.bookid GROUP BY o.BookID order by sum(o.Quantity) desc";
+				else
+					sql ="SELECT * FROM books ORDER BY "+type+" DESC";
+				System.out.println(sql);
 				Statement stmt=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
 				ResultSet set=stmt.executeQuery(sql);
 				if(page!=1)
@@ -109,35 +115,6 @@ public class BookDao {
 					book.setiSBN(set.getString("ISBN"));
 					list.add(book);
 					i++;
-				}
-				return list;
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-	}
-	/*
-	 * 用在主页初始化三个分区的图书信息-注意注意注意注意注意注意注意注意注意注意注意注意注意注意注意注意
-	 * 此代码冗余，后期与manybooklist()整合
-	 */
-	public List<Book> indexManybooklist(String type){
-		Book book;
-		List<Book> list=new ArrayList<Book>();
-		try {
-			if(!conn.isClosed()){
-				String sql ="SELECT * FROM books ORDER BY "+type+" DESC LIMIT 8";
-				PreparedStatement stmt=conn.prepareStatement(sql);
-				ResultSet set=stmt.executeQuery();
-				while(set.next()){
-					book=new Book();
-					book.setId(set.getInt("id"));
-					book.setTitle(set.getString("Title"));
-					book.setAuthor(set.getString("Author"));
-					book.setUnitPrice(set.getFloat("UnitPrice"));
-					book.setiSBN(set.getString("ISBN"));
-					list.add(book);
 				}
 				return list;
 			}

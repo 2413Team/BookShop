@@ -70,9 +70,9 @@
 	</div>
 	
 	<ul class="main">
-		<p><a href="hotbook.jsp"><h1>热门图书 </h1></a></p>
+		<p><a href="BookServlet?act=hotbook&page=1"><h1>热门图书 </h1></a></p>
 		<li>
-		<c:set var="list" scope="page" value='${dao.indexManybooklist("clicks")}'/>
+		<c:set var="list" scope="page" value='${dao.manybooklist("clicks",8,1)}'/>
   			 <c:if test="${list!=null }">
    				<c:forEach items="${list }" var="book">
 					<div class="booklist">
@@ -85,9 +85,9 @@
 			</c:if>
 		</li>
 		
-		<p><a href="newbook.jsp"><h1>最新图书 </h1></a></p>
+		<p><a href="BookServlet?act=newbook&page=1"><h1>最新图书 </h1></a></p>
 		<li>
-		<c:set var="list" scope="page" value='${dao.indexManybooklist("publishdate")}'/>
+		<c:set var="list" scope="page" value='${dao.manybooklist("publishdate",8,1)}'/>
   			 <c:if test="${list!=null }">
    				<c:forEach items="${list }" var="book">
 					<div class="booklist">
@@ -100,9 +100,24 @@
 			</c:if>
 		</li>
 		
-		<p><a href="tjbook.jsp"><h1>推荐图书 </h1></a></p>
+		<p><a href="BookServlet?act=tjbook&page=1"><h1>推荐图书 </h1></a></p>
 		<li>
-		<c:set var="list" scope="page" value='${dao.indexManybooklist("unitPrice")}'/>
+		<c:set var="list" scope="page" value='${dao.manybooklist("unitPrice",8,1)}'/>
+  			 <c:if test="${list!=null }">
+   				<c:forEach items="${list }" var="book">
+					<div class="booklist">
+						<div class="pic1"><img alt="" src="image/pic1.jpg"  style="float: left;"/></div> 
+						<a href='#?bookid=${book.id}' class="title" >${book.title }</a>	
+                		<h4 class="author" >${book.author }</h4>
+               			 <h4 class="unitprice" >￥ ${book.unitPrice }</h4>
+					</div>
+				</c:forEach>
+			</c:if>
+		</li>
+		
+		<p><a href="BookServlet?act=quantitybook&page=1"><h1>热销图书 </h1></a></p>
+		<li>
+		<c:set var="list" scope="page" value='${dao.manybooklist("qunatity",8,1)}'/>
   			 <c:if test="${list!=null }">
    				<c:forEach items="${list }" var="book">
 					<div class="booklist">
