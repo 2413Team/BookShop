@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+
+.body{background:#ffffff;}
+
+div.content{width:980px;height:600px;background:#ebebeb;margin:0 auto; margin-top: 25px;}
+
+div.content .bookpic{width:200px; height:300px;background:url(../Pic/gr2.jpg);float:left;border:solid 1px #ffffff; margin:30px 0 0 50px;;}
+
+
+.content .detail{float:left;border:solid 1px #ebebeb; margin:30px 0 0 100px;width:600px; height:400px;}
+.content .detail  h4{color: #808080;margin:5px 0 0 5px;}
+
+.content .detail #p1 p{font-size:14px;line-height:20px;color: #ff0000;margin:5px 0 0 5px; height: 200px; overflow: hidden;}
+
+.content .detail #p2 p{font-size:14px;line-height:20px;margin:20px 0 0 5px;}
+.content .detail #p2 a{color: #0080ff;}
+
+.content .detail #p3 p{font-size:14px;line-height:20px;margin:20px 0 0 5px;} 
+.content .detail #p3 b{color:#ff0000;font-size:16px;}
+.content .detail #p3 a{color: #0080ff;}
+
+.content .detail .input-wrapper{margin:30px 0 0 5px;}
+.content .detail .input-wrapper p{font-size:14px;line-height:20px;float:right;margin:0 50px 0 0;}
+.content .detail .input-wrapper p a{color: #0080ff;}
+
+.content .detail    .text{width:50px;height:50px; font-size:16px;border:solid 1px #0080c0; float:left;text-indent: 6px;margin:40px 0 0 40px;}
+
+.content .detail .btn{width:30px;float:left;margin:40px 0 0 0;}
+.content .detail    .btn1{width:30px;height:25px;color:#ffffff;float:left;margin:0 0 2px 0;background: #0080c0;border:solid 1px #0080c0;}
+.content .detail    .btn2{width:30px;height:25px;color:#ffffff;float:left;background: #0080c0;border:solid 1px #0080c0;}
+
+
+.content .detail  .submit{width:120px;height:50px;border:solid 1px #0080c0;background:#0080c0;color:white;margin:40px 0 0 20px;font-size:16px;}

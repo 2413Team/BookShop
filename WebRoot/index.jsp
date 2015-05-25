@@ -19,7 +19,7 @@
 		<li style="float: left; width:150px; height:100%; background-color: #b1191a; line-height: 45px; color:#fff; ">图书种类</li>
 		<li style="float: right; width: 191px; height: 100%; margin-right:13.5px; background-color:green; line-height: 45px; color:#fff; ">出版社</li>
 </ul>
-<p style="width:1920px; height: 3px; background-color: #c81623;"></p>
+<p style="width:100%; height: 2px; background-color: #c81623;"></p>
 <div class="content">
 	<div class="left" id="kuangjia">
 		<ul>
@@ -77,7 +77,7 @@
    				<c:forEach items="${list }" var="book">
 					<div class="booklist">
 						<div class="pic1"><img alt="" src="image/pic1.jpg"  style="float: left;"/></div> 
-						<a href='#?bookid=${book.id}' class="title" >${book.title }</a>	
+						<a href='BookServlet?act=detailbook&bookid=${book.id}' class="title" >${book.title }</a>	
                 		<h4 class="author" >${book.author }</h4>
                			 <h4 class="unitprice" >￥ ${book.unitPrice }</h4>
 					</div>
@@ -92,7 +92,7 @@
    				<c:forEach items="${list }" var="book">
 					<div class="booklist">
 						<div class="pic1"><img alt="" src="image/pic1.jpg"  style="float: left;"/></div> 
-						<a href='#?bookid=${book.id}' class="title" >${book.title }</a>	
+						<a href='BookServlet?act=detailbook&bookid=${book.id}' class="title" >${book.title }</a>	
                 		<h4 class="author" >${book.author }</h4>
                			 <h4 class="unitprice" >￥ ${book.unitPrice }</h4>
 					</div>
@@ -107,7 +107,7 @@
    				<c:forEach items="${list }" var="book">
 					<div class="booklist">
 						<div class="pic1"><img alt="" src="image/pic1.jpg"  style="float: left;"/></div> 
-						<a href='#?bookid=${book.id}' class="title" >${book.title }</a>	
+						<a href='BookServlet?act=detailbook&bookid=${book.id}' class="title" >${book.title }</a>	
                 		<h4 class="author" >${book.author }</h4>
                			 <h4 class="unitprice" >￥ ${book.unitPrice }</h4>
 					</div>
@@ -122,7 +122,7 @@
    				<c:forEach items="${list }" var="book">
 					<div class="booklist">
 						<div class="pic1"><img alt="" src="image/pic1.jpg"  style="float: left;"/></div> 
-						<a href='#?bookid=${book.id}' class="title" >${book.title }</a>	
+						<a href='BookServlet?act=detailbook&bookid=${book.id}' class="title" >${book.title }</a>	
                 		<h4 class="author" >${book.author }</h4>
                			 <h4 class="unitprice" >￥ ${book.unitPrice }</h4>
 					</div>

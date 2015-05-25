@@ -55,6 +55,8 @@ public class BookServlet extends HttpServlet {
 			tjbook(request,response);
 		if(act.equals("quantitybook"))
 			quantitybook(request,response);
+		if(act.equals("detailbook"))
+			detailbook(request, response);
 	}
 	protected void getBookByName(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		dao=new BookDao();
@@ -162,5 +164,15 @@ public class BookServlet extends HttpServlet {
 		out.setAttribute("page", page);
 		out.setAttribute("id", id);
 		response.sendRedirect("findbookSuccess.jsp");
+	}
+	
+	protected void detailbook(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		dao=new BookDao();
+		String bookid=request.getParameter("bookid");
+		List<Book> list=new ArrayList<Book>();
+		list=dao.getBookById(bookid);
+		HttpSession out=request.getSession();
+		out.setAttribute("List", list);
+		response.sendRedirect("detailbook.jsp");
 	}
 }

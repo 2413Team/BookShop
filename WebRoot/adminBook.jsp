@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<p style="width:100%; height: 2px; background-color: #c81623;"></p>
 <div class="header">
         <img src="image/header_left.jpg"  />
         <ul style="list-style:none;">

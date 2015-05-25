@@ -25,6 +25,8 @@
                       <input type="submit"  value="搜索"  id="btn"  name="btn"  class="btn"/>
             </form>      
       </div> 
+      <div class="twoforhorse">
+      </div>
     </div>
   </div>
 </body>

@@ -24,6 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   <%@include file="header.jsp" %>
   <body>
+  <p style="width:100%; height: 2px; background-color: #c81623;"></p>
   <div class="all">
   	<div class="hello"></div>
   	<div class="register">

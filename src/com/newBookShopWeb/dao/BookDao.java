@@ -38,10 +38,31 @@ public class BookDao {
 				stmt.setString(1, "%"+name+"%");
 				ResultSet set=stmt.executeQuery();
 				while(set.next()){
-					book=new Book();
-					book.setTitle(set.getString("Title"));
-					book.setAuthor(set.getString("Author"));
-					book.setUnitPrice(set.getFloat("UnitPrice"));
+					book=getOneBook(set);
+					list.add(book);
+				}
+				return list;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	/*
+	 * 根据ID查询图书
+	 */
+	public List<Book> getBookById(String bookid){
+		Book book;
+		List<Book> list=new ArrayList<Book>();
+		try {
+			if(!conn.isClosed()){
+				String sql="SELECT * FROM books WHERE id =?";
+				PreparedStatement stmt=conn.prepareStatement(sql);
+				stmt.setString(1, bookid);
+				ResultSet set=stmt.executeQuery();
+				while(set.next()){
+					book=getOneBook(set);
 					list.add(book);
 				}
 				return list;
@@ -70,10 +91,7 @@ public class BookDao {
 					set.first();
 				int i=0;
 				while(set.next()&&i<count){
-					book=new Book();
-					book.setTitle(set.getString("Title"));
-					book.setAuthor(set.getString("Author"));
-					book.setUnitPrice(set.getFloat("UnitPrice"));
+					book=getOneBook(set);
 					list.add(book);
 					i++;
 				}
@@ -105,12 +123,7 @@ public class BookDao {
 					set.absolute((page-1)*count);
 				int i=0;
 				while(set.next()&&i<count){
-					book=new Book();
-					book.setId(set.getInt("id"));
-					book.setTitle(set.getString("Title"));
-					book.setAuthor(set.getString("Author"));
-					book.setUnitPrice(set.getFloat("UnitPrice"));
-					book.setiSBN(set.getString("ISBN"));
+					book=getOneBook(set);
 					list.add(book);
 					i++;
 				}
@@ -127,7 +140,7 @@ public class BookDao {
 	 */
 	public  List<Book> getBookByCId(String catid,int count,int page){
   	  ArrayList<Book> blist=new ArrayList<Book>();
-  	  Book b;
+  	  Book book;
   	  try {
   		if(!conn.isClosed()){
   		  String sql="select b.* from books b,categories c where b.CategoryId=c.Id and c.Id="+catid;
@@ -137,12 +150,8 @@ public class BookDao {
   			  set.absolute((page-1)*count);
   		  int i=0;
   		  while(set.next()&&i<count){
-  			 b=new Book();
-  			 b.setId(set.getInt("id"));
-  			 b.setTitle(set.getString("Title"));
-  			 b.setAuthor(set.getString("Author"));
-  			 b.setUnitPrice(set.getFloat("unitPrice"));
-  			 blist.add(b);
+  			 book=getOneBook(set);
+  			 blist.add(book);
   			 i++;
 	       }
   		}
@@ -157,7 +166,7 @@ public class BookDao {
 	 */
 	public  List<Book> getBookByPId(String pubid,int count,int page){
 	  	  ArrayList<Book> blist=new ArrayList<Book>();
-	  	  Book b;
+	  	  Book book;
 	  	  try {
 	  		if(!conn.isClosed()){
 	  		  String sql="select b.* from books b,publishers p where b.PublisherId=p.Id and p.Id="+pubid;
@@ -167,12 +176,8 @@ public class BookDao {
 	  			  set.absolute((page-1)*count);
 	  		  int i=0;
 	  		  while(set.next()&&i<count){
-	  			 b=new Book();
-	  			 b.setId(set.getInt("id"));
-	  			 b.setTitle(set.getString("Title"));
-	  			 b.setAuthor(set.getString("Author"));
-	  			 b.setUnitPrice(set.getFloat("unitPrice"));
-	  			 blist.add(b);
+	  			 book=getOneBook(set);
+	  			 blist.add(book);
 	  			 i++;
 		       }
 	  		}
@@ -182,6 +187,33 @@ public class BookDao {
 			}
 	  	  return blist;
 	    }
+	/*
+	 * 通过查询的ResultSet把图书信息写入图书对象
+	 */
+	private Book getOneBook(ResultSet set){
+		Book book=new Book();
+		try {
+			book.setId(set.getInt("id"));
+			book.setTitle(set.getString("Title"));
+			book.setAuthor(set.getString("Author"));
+			book.setPublisherId(set.getInt("PublisherId"));
+			book.setPublisherDate(set.getString("PublishDate"));
+			book.setiSBN(set.getString("ISBN"));
+			book.setWordsCount(set.getInt("WordsCount"));
+			book.setUnitPrice(set.getFloat("UnitPrice"));
+			book.setContentDescription(set.getString("ContentDescription"));
+			book.setAurhorDescription(set.getString("AurhorDescription"));
+			book.setEditorComment(set.getString("EditorComment"));
+			book.settOc(set.getString("TOC"));
+			book.setCategoryId(set.getInt("CategoryId"));
+			book.setClicks(set.getInt("Clicks"));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return book;
+	}
+	
 	/*
 	 * 获得总页码，注意注意注意注意注意注意注意注意注意注意注意注意注意注意注意注意注意注意注意注意注意注意注意注意注意
 	 * 并没有完成

@@ -9,6 +9,7 @@
 <title>Speed Book</title>
 </head>
 <body>
+<p style="width:100%; height: 2px; background-color: #c81623;"></p>
  <div class=pic>
     <img alt="" src="image/tsjy_jianyi.jpg"  class="jianyi"/>
     <img alt="" src="image/tsjy_tousu.jpg" class="tousu"/>

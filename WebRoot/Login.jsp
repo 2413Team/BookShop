@@ -9,6 +9,7 @@
 </head>
 	<%@include file="header.jsp" %>
 <body>
+<p style="width:100%; height: 2px; background-color: #c81623;"></p>
 	<div class="login">
 		<form method="post" action="userAct?act=login" name="loginForm">
 			<h2>登陆：</h2>
