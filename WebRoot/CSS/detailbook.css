@@ -1,13 +1,14 @@
 @CHARSET "UTF-8";
 
-.body{background:#ffffff;}
+.body{height:650px; width:100%; float: left; margin-bottom: 25px; }
 
-div.content{width:980px;height:600px;background:#ebebeb;margin:0 auto; margin-top: 25px;}
+.contentback{width: 100%; height: 550px;  border-bottom:3px solid #ebebeb;}
+.content{width:980px;height:550px;margin:0 auto; margin-top: 25px}
 
-div.content .bookpic{width:200px; height:300px;background:url(../Pic/gr2.jpg);float:left;border:solid 1px #ffffff; margin:30px 0 0 50px;;}
+.content .bookpic{width:200px; height:300px; float:left;border:solid 1px #ffffff; margin:30px 0 0 50px;;}
 
 
-.content .detail{float:left;border:solid 1px #ebebeb; margin:30px 0 0 100px;width:600px; height:400px;}
+.content .detail{float:left;; margin:30px 0 0 100px;width:600px; height:400px;}
 .content .detail  h4{color: #808080;margin:5px 0 0 5px;}
 
 .content .detail #p1 p{font-size:14px;line-height:20px;color: #ff0000;margin:5px 0 0 5px; height: 200px; overflow: hidden;}
@@ -23,11 +24,83 @@ div.content .bookpic{width:200px; height:300px;background:url(../Pic/gr2.jpg);fl
 .content .detail .input-wrapper p{font-size:14px;line-height:20px;float:right;margin:0 50px 0 0;}
 .content .detail .input-wrapper p a{color: #0080ff;}
 
-.content .detail    .text{width:50px;height:50px; font-size:16px;border:solid 1px #0080c0; float:left;text-indent: 6px;margin:40px 0 0 40px;}
+.content .detail   .text{width:50px;height:50px; font-size:16px;border:solid 1px #0080c0; float:left;text-indent: 6px;margin:40px 0 0 0;}
 
-.content .detail .btn{width:30px;float:left;margin:40px 0 0 0;}
-.content .detail    .btn1{width:30px;height:25px;color:#ffffff;float:left;margin:0 0 2px 0;background: #0080c0;border:solid 1px #0080c0;}
-.content .detail    .btn2{width:30px;height:25px;color:#ffffff;float:left;background: #0080c0;border:solid 1px #0080c0;}
+.content .detail  .btn{width:30px;float:left;margin:40px 0 0 0;}
+.content .detail  .btn1{width:30px;height:25px;color:#ffffff;float:left;margin:0 0 2px 0;background: #0080c0;border:solid 1px #0080c0;}
+.content .detail  .btn2{width:30px;height:25px;color:#ffffff;float:left;background: #0080c0;border:solid 1px #0080c0;}
 
 
 .content .detail  .submit{width:120px;height:50px;border:solid 1px #0080c0;background:#0080c0;color:white;margin:40px 0 0 20px;font-size:16px;}
+
+.main{
+	display: block;
+	width:1280px;
+	margin:0 auto;
+	margin-top: 15px;
+}
+
+.main h1{
+	width: 15%;
+	margin-bottom: 1%;
+}
+.main h1 a{
+	color: #333;
+}
+.main h1 a:ACTIVE{
+	color: #b1191a;
+}
+
+
+.main li{
+	border:1px solid #f1f1f1;
+	border-top:2px solid #b1191a;
+	height: 500px;
+	margin-bottom: 2%;
+}
+
+.main li .booklist{
+	float: left;
+	margin-top:2%;
+	margin-right:1%;
+	margin-left:1%;
+	width: 23%;
+	height: 45%;
+}
+
+
+.main li .booklist .pic1{
+	width:130px;
+	height:180px;
+	float:left;
+	border:solid 1px #c8c9c9;
+	margin:10px 0 0 10px;
+}
+
+.main li .booklist .title{
+	width: 145px;
+	height:90px;
+	margin:10px 0 0 2%;
+	float:left;
+	font-size: 18px; 
+	display: block; 
+	overflow: hidden;
+}
+
+.main li .booklist .author{
+	width: 130px; 
+	height:50px;
+	display: block; 
+	font-size: 14px;
+	margin:4% 0 0 2%;
+	float:left;
+	overflow:hidden;
+}
+
+.main li .booklist .unitprice{
+	width:130px;
+	height:24px;
+	color: red;
+	margin:2% 0 0 2%;
+	float: left;
+}

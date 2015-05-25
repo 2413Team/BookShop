@@ -63,6 +63,7 @@ public class BookServlet extends HttpServlet {
 		if(act.equals("detailbook"))
 			detailbook(request, response);
 	}
+	
 	protected void getBookByName(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		dao=new BookDao();
 		List<Book> list =new ArrayList<Book>();
@@ -78,7 +79,6 @@ public class BookServlet extends HttpServlet {
 		int page=Integer.parseInt(request.getParameter("page"));
 		String key=request.getParameter("key");
 		key=new String(key.getBytes("iso-8859-1"),"gb2312");
-		System.out.println(key);
 		list=dao.findBook(key,12,page);
 		HttpSession out=request.getSession();
 		out.setAttribute("List", list);
@@ -90,7 +90,6 @@ public class BookServlet extends HttpServlet {
 	protected void catefindbook(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		dao=new BookDao();
 		String id=request.getParameter("id");
-		System.out.println(id);
 		List<Book> list=new ArrayList<Book>();
 		int page=Integer.parseInt(request.getParameter("page"));
 		list=dao.getBookByCId(id,12,page);
@@ -104,7 +103,6 @@ public class BookServlet extends HttpServlet {
 	protected void pubfindbook(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		dao=new BookDao();
 		String id=request.getParameter("id");
-		System.out.println(id);
 		List<Book> list=new ArrayList<Book>();
 		int page=Integer.parseInt(request.getParameter("page"));
 		list=dao.getBookByPId(id,12,page);
@@ -118,7 +116,6 @@ public class BookServlet extends HttpServlet {
 	protected void hotbook(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		dao=new BookDao();
 		String id=request.getParameter("id");
-		System.out.println(id);
 		List<Book> list=new ArrayList<Book>();
 		int page=Integer.parseInt(request.getParameter("page"));
 		list=dao.manybooklist("clicks", 12, page);
@@ -132,7 +129,6 @@ public class BookServlet extends HttpServlet {
 	protected void newbook(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		dao=new BookDao();
 		String id=request.getParameter("id");
-		System.out.println(id);
 		List<Book> list=new ArrayList<Book>();
 		int page=Integer.parseInt(request.getParameter("page"));
 		list=dao.manybooklist("publishdate", 12, page);
@@ -146,7 +142,6 @@ public class BookServlet extends HttpServlet {
 	protected void tjbook(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		dao=new BookDao();
 		String id=request.getParameter("id");
-		System.out.println(id);
 		List<Book> list=new ArrayList<Book>();
 		int page=Integer.parseInt(request.getParameter("page"));
 		list=dao.manybooklist("unitprice", 12, page);
@@ -160,7 +155,6 @@ public class BookServlet extends HttpServlet {
 	protected void quantitybook(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		dao=new BookDao();
 		String id=request.getParameter("id");
-		System.out.println(id);
 		List<Book> list=new ArrayList<Book>();
 		int page=Integer.parseInt(request.getParameter("page"));
 		list=dao.manybooklist("qunatity", 12, page);

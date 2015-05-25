@@ -1,7 +1,47 @@
 @CHARSET "UTF-8";
 *{margin:margin:0;padding:0;}
 a{text-decoration:none;}
-body{font-size:12px Aria,"宋体";width:100%; margin:0 auto; border-top:1px solid #000;}
 
-div.footer{height:40px;width:100%;;panding-top:10px; background-color:#fafafa; margin:0 auto; float:left; margin-top: 300px; position: relative; }
-div.footer p{ line-height:40px; font-size:18px; text-align:center;}
+.footer{height:320px;width:100%;;panding-top:10px; background-color:#ebebeb; margin:0 auto; float:left; margin-top: 300px; position: relative; }
+
+.footer .top{
+	height: 200px;
+	width: 100%;
+}
+.footer .top .mainlist{
+	width:850px;
+	height:100%;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+.footer .top .mainlist #firstmainli{
+	margin-left:50px;
+}
+.footer .top .mainlist .mainli{
+	float:left;
+	width:120px;
+	height: 100%;
+	margin-right: 40px;
+	color: #e47911;
+}
+.footer .top .mainlist .mainli li{
+	margin-top: 5px;
+}
+
+.footer .bottom{
+	height: 100px;
+	width: 100%;
+}
+
+.footer .bottom .footerlogo{
+	width: 100%;
+	text-align: center;
+	font-size: 26px;
+}
+
+.footer .bottom #bottomcontent{
+	width: 100%;
+	text-align: center;
+	font-size: 14px;
+	color: #b29999;
+}

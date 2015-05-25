@@ -15,4 +15,4 @@ div.header .user a:hover{color:#eb3000; font-weight: bold;}
 div.header .search form{ float:left;margin:65px 0 0 13%; }
 div.header .search form .text{width:320px;height:35px; font-size:16px;border:solid 1px #c81623; float:left;text-indent: 6px; text-align: left;}
 div.header .search form .btn{width:60px;height:37px;border:solid 1px #c81623;background:#c81623;color:white;float:left;}
-div.header .twoforhorse{background:url("../image/twoforhorse.png") 100% 100% ;width: 128px; height: 128px; float: left; margin-left: 320px; margin-top: 10px; }
+div.header .twoforhorse{background:url("../image/twoforhorse.png") 100% 100% ;width: 128px; height: 128px; float: right; margin-right:70px; margin-top: 10px; }
