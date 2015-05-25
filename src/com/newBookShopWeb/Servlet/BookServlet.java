@@ -34,6 +34,11 @@ public class BookServlet extends HttpServlet {
 	 * act-findbook：查询图书动作
 	 * act-catefindbook：通过种类查询图书动作
 	 * act-pubfindbook：通过出版社查询图书动作
+	 * act-hotbook:热门图书
+	 * act-newbook:最新图书
+	 * act-tjbook:推荐图书，根据单价
+	 * act-quantitybook:热销图书
+	 * act-detailbook:图书详细
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		act=request.getParameter("act");
@@ -168,11 +173,11 @@ public class BookServlet extends HttpServlet {
 	
 	protected void detailbook(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		dao=new BookDao();
-		String bookid=request.getParameter("bookid");
-		List<Book> list=new ArrayList<Book>();
-		list=dao.getBookById(bookid);
+		String bookisbn=request.getParameter("bookisbn");
+		Book book;
+		book=dao.getBookByISBN(bookisbn);
 		HttpSession out=request.getSession();
-		out.setAttribute("List", list);
+		out.setAttribute("Book", book);
 		response.sendRedirect("detailbook.jsp");
 	}
 }

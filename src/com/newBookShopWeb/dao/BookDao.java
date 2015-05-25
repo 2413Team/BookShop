@@ -52,20 +52,18 @@ public class BookDao {
 	/*
 	 * 根据ID查询图书
 	 */
-	public List<Book> getBookById(String bookid){
-		Book book;
-		List<Book> list=new ArrayList<Book>();
+	public Book getBookByISBN(String bookisbn){
+		Book book=null;
 		try {
 			if(!conn.isClosed()){
-				String sql="SELECT * FROM books WHERE id =?";
+				String sql="SELECT * FROM books WHERE isbn =?";
 				PreparedStatement stmt=conn.prepareStatement(sql);
-				stmt.setString(1, bookid);
+				stmt.setString(1, bookisbn);
 				ResultSet set=stmt.executeQuery();
 				while(set.next()){
 					book=getOneBook(set);
-					list.add(book);
 				}
-				return list;
+				return book;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

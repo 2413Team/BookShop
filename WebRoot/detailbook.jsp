@@ -102,18 +102,16 @@
                    
              </div>
              <div class="detail">
-             <c:forEach var="b" items="${sessionScope.List}">
-             <h4>${b.title}</h4>
+             <h4>${sessionScope.Book.title}</h4>
                    <div id="p1">
-                         <p>${b.contentDescription}</p>
+                         <p>${sessionScope.Book.contentDescription}</p>
                      </div>
                        <div id="p2">
-                         <p><a href="#">${b.author }</a></p>
+                         <p><a href="#">${sessionScope.Book.author }</a></p>
                      </div>
                        <div id="p3">
-                         <p> 飞书价：<b>${b.unitPrice }</b> [8折] [原价：￥${b.unitPrice/0.8}] <a href="#"> (降价通知)</a></p>
+                         <p> 飞书价：<b>${sessionScope.Book.unitPrice }</b> [8折] [原价：￥${sessionScope.Book.unitPrice/0.8}] <a href="#"> (降价通知)</a></p>
                      </div>
-               </c:forEach>   
                 <div class="input-wrapper" id="password-wrapper">
           		<label for="address">配送地址：</label>
 				<select id="s_province" name="s_province"></select>  

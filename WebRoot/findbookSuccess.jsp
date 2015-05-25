@@ -15,12 +15,12 @@
 <p style="width:100%; height: 2px; background-color: #c81623;"></p>
    <div class="big">
    		<c:if test="${sessionScope.List!=null }">
-   			<c:forEach var="b" items="${List}" begin="0" end="11">
+   			<c:forEach var="book" items="${List}" begin="0" end="11">
    				<div class="small">
                 	<div class="pic1"><img alt="" src="image/pic1.jpg"  style="float: left;"/></div>   	
-                		<a href='BookServlet?act=detailbook&bookid=${b.id}' class="title" >${b.title }</a>	
-                		<h4 class="author" >${b.author }</h4>
-                		<h4 class="unitprice" >￥${b.unitPrice }</h4>
+                		<a href='BookServlet?act=detailbook&bookisbn=${book.iSBN}' class="title" >${book.title }</a>	
+                		<h4 class="author" >${book.author }</h4>
+                		<h4 class="unitprice" >￥${book.unitPrice }</h4>
    				</div>
    		     </c:forEach>
    		</c:if>

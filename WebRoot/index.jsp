@@ -77,7 +77,7 @@
    				<c:forEach items="${list }" var="book">
 					<div class="booklist">
 						<div class="pic1"><img alt="" src="image/pic1.jpg"  style="float: left;"/></div> 
-						<a href='BookServlet?act=detailbook&bookid=${book.id}' class="title" >${book.title }</a>	
+						<a href='BookServlet?act=detailbook&bookisbn=${book.iSBN}' class="title" >${book.title }</a>	
                 		<h4 class="author" >${book.author }</h4>
                			 <h4 class="unitprice" >￥ ${book.unitPrice }</h4>
 					</div>
@@ -92,7 +92,7 @@
    				<c:forEach items="${list }" var="book">
 					<div class="booklist">
 						<div class="pic1"><img alt="" src="image/pic1.jpg"  style="float: left;"/></div> 
-						<a href='BookServlet?act=detailbook&bookid=${book.id}' class="title" >${book.title }</a>	
+						<a href='BookServlet?act=detailbook&bookisbn=${book.iSBN}' class="title" >${book.title }</a>	
                 		<h4 class="author" >${book.author }</h4>
                			 <h4 class="unitprice" >￥ ${book.unitPrice }</h4>
 					</div>
@@ -107,7 +107,7 @@
    				<c:forEach items="${list }" var="book">
 					<div class="booklist">
 						<div class="pic1"><img alt="" src="image/pic1.jpg"  style="float: left;"/></div> 
-						<a href='BookServlet?act=detailbook&bookid=${book.id}' class="title" >${book.title }</a>	
+						<a href='BookServlet?act=detailbook&bookisbn=${book.iSBN}'class="title" >${book.title }</a>	
                 		<h4 class="author" >${book.author }</h4>
                			 <h4 class="unitprice" >￥ ${book.unitPrice }</h4>
 					</div>
@@ -122,7 +122,7 @@
    				<c:forEach items="${list }" var="book">
 					<div class="booklist">
 						<div class="pic1"><img alt="" src="image/pic1.jpg"  style="float: left;"/></div> 
-						<a href='BookServlet?act=detailbook&bookid=${book.id}' class="title" >${book.title }</a>	
+						<a href='BookServlet?act=detailbook&bookisbn=${book.iSBN}' class="title" >${book.title }</a>	
                 		<h4 class="author" >${book.author }</h4>
                			 <h4 class="unitprice" >￥ ${book.unitPrice }</h4>
 					</div>
