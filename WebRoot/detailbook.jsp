@@ -139,9 +139,8 @@
 						</p>
 					</div>
 
-					<form action="#?isbn=${sessionScope.Book.iSBN}">
-						<input type="text" value="1" id="goodsNum" name="bookNum"
-							class="text" />
+					<form action="CartServlet?act=addcart&	bookISBN=${sessionScope.Book.iSBN}" method="post">
+						<input type="text" value="1" id="goodsNum" name="bookNum" class="text" />
 						<div class="btn">
 							<input type="button" value="+" id="add" name="btn" class="btn1" />
 							<input type="button" value="-" id="min" name="btn" class="btn2" />

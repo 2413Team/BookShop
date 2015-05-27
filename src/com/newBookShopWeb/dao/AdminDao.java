@@ -11,34 +11,49 @@ import com.newBookShopWeb.entity.OurUser;
 
 public class AdminDao implements Dao {
 	private Connection conn;
+
 	public AdminDao() {
 		try {
-			conn=DataSourceProvider.getInstance().getDataSoruce().getConnection();
+			conn = DataSourceProvider.getInstance().getDataSoruce()
+					.getConnection();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
+
 	/*
 	 * 实现管理员用户的登陆操作
 	 */
 	@Override
-	public boolean doLogin(OurUser user) {
+	public OurUser doLogin(OurUser user) {
 		// TODO Auto-generated method stub
+		OurUser ouruser=new OurUser();
+		ouruser.setId(0);
 		try {
-			if(!conn.isClosed()){
-				CallableStatement stmt=conn.prepareCall("CALL pro_adminLogin(?,?)");
+			if (!conn.isClosed()) {
+				CallableStatement stmt = conn.prepareCall("CALL pro_adminLogin(?,?)");
 				stmt.setString(1, user.getLoginId());
 				stmt.setString(2, user.getLoginPwd());
-				ResultSet set=stmt.executeQuery();
-				if(set.next())
-					return true;
+				ResultSet set = stmt.executeQuery();
+				if (set.next()) {
+					ouruser.setId(set.getInt("id"));
+					ouruser.setLoginId(set.getString("LoginId"));
+					ouruser.setLoginPwd(set.getString("LoginPwd"));
+					ouruser.setName(set.getString("Name"));
+					ouruser.setAddress(set.getString("Address"));
+					ouruser.setPhone(set.getString("Phone"));
+					ouruser.setMail(set.getString("Mail"));
+					ouruser.setUserRoleId(set.getInt("UserRoleId"));
+					ouruser.setUserStateId(set.getInt("UserStateId"));
+					return ouruser;
+				}
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return false;
+		return ouruser;
 	}
 
 	/*
@@ -49,8 +64,8 @@ public class AdminDao implements Dao {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
-	public boolean addBook(Book book){
+
+	public boolean addBook(Book book) {
 		return true;
 	}
 }

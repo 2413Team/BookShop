@@ -48,7 +48,8 @@ public class AdminServlet extends HttpServlet {
 		user.setLoginId(request.getParameter("LoginId"));
 		user.setLoginPwd(request.getParameter("LoginPwd"));
 		HttpSession session=request.getSession();
-		if(dao.doLogin(user))
+		user=dao.doLogin(user);
+		if(user.getId()!=0)
 			session.setAttribute("LoginId", user.getLoginId());
 		response.sendRedirect("adminLogin.jsp");
 	}

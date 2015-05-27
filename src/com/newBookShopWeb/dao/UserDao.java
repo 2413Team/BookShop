@@ -22,7 +22,9 @@ public class UserDao implements Dao {
 	/*
 	 * 实现了普通用户的登陆
 	 */
-	public boolean doLogin(OurUser user){
+	public OurUser doLogin(OurUser user){
+		OurUser ouruser=new OurUser();
+		ouruser.setId(0);
 		try {
 			if(!conn.isClosed()){
 				CallableStatement stmt=conn.prepareCall("CALL pro_userLogin(?,?)");
@@ -30,14 +32,23 @@ public class UserDao implements Dao {
 				stmt.setString(2, user.getLoginPwd());
 				ResultSet rs=stmt.executeQuery();
 				if(rs.next()){
-					return true;
+					ouruser.setId(rs.getInt("id"));
+					ouruser.setLoginId(rs.getString("LoginId"));
+					ouruser.setLoginPwd(rs.getString("LoginPwd"));
+					ouruser.setName(rs.getString("Name"));
+					ouruser.setAddress(rs.getString("Address"));
+					ouruser.setPhone(rs.getString("Phone"));
+					ouruser.setMail(rs.getString("Mail"));
+					ouruser.setUserRoleId(rs.getInt("UserRoleId"));
+					ouruser.setUserStateId(rs.getInt("UserStateId"));
+					return ouruser;
 				}
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return false;
+		return ouruser;
 	}
 	/*
 	 * 实现了普通用户的注册

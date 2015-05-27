@@ -3,6 +3,7 @@ package com.newBookShopWeb.entity;
 import java.io.Serializable;
 
 public class OurUser implements Serializable{
+	private  int id;
 	private String loginId;
 	private String loginPwd;
 	private String loginPwdRe;
@@ -18,6 +19,19 @@ public class OurUser implements Serializable{
 		
 		// TODO Auto-generated constructor stub
 	}
+
+	
+
+	public int getId() {
+		return id;
+	}
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 
 
 	public String getLoginId() {

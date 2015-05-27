@@ -49,9 +49,10 @@ public class UserServlet extends HttpServlet {
 		user=new OurUser();
 		user.setLoginId(req.getParameter("loginId"));
 		user.setLoginPwd(req.getParameter("loginPwd"));
-		if(dao.doLogin(user)){
+		user=dao.doLogin(user);
+		if(user.getId()!=0){
 			ServletContext application=this.getServletContext();
-			application.setAttribute("userLogin", user);
+			application.setAttribute("user", user);
 			resp.sendRedirect("index.jsp");
 		}
 		else{
@@ -74,7 +75,7 @@ public class UserServlet extends HttpServlet {
 	}
 	protected void userExit(HttpServletRequest req, HttpServletResponse resp) throws IOException{
 		ServletContext application=this.getServletContext();
-		application.setAttribute("userLogin", null);
+		application.setAttribute("user", null);
 		resp.sendRedirect("index.jsp");
 	}
 }

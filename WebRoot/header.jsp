@@ -12,16 +12,16 @@
 <body>
        <div class="header">
        		<div class="user">  
-       			<c:if test="${applicationScope.userLogin==null}">
+       			<c:if test="${applicationScope.user==null}">
             		<ul>
                 		<li><a href="register.jsp">注册</a></li>
             	    	<li><a href="Login.jsp">登陆</a></li>
           		      	<li><a href="">购物车</a>(<a href="">0</a>)</li>
           	 	 	</ul>
           	  </c:if>
-           	 <c:if test="${applicationScope.userLogin!=null}">
+           	 <c:if test="${applicationScope.user!=null}">
             		<ul>
-                		<li>欢迎回来!   <a href="#">${applicationScope.userLogin.loginId }</a></li>
+                		<li>欢迎回来!   <a href="#">${applicationScope.user.loginId }</a></li>
                 		<li><a href="">购物车</a>(<a href="">0</a>)</li>
                 		<li><a href="userAct?act=exit">退出登录</a></li>
             		</ul>
