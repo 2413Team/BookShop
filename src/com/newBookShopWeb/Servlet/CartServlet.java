@@ -18,16 +18,28 @@ public class CartServlet extends HttpServlet {
 	String act;
 	OurUser user;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		act=request.getParameter("act");
-		if(act.equals("addcart"))
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		act = request.getParameter("act");
+		if (act.equals("addcart"))
 			AddCart(request, response);
 	}
-	
-	protected void AddCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		CartDao cartdao=new CartDao();
-		ServletContext application=this.getServletContext();
-		user=(OurUser)application.getAttribute("user");
-		cartdao.Add(user);
+
+	protected void AddCart(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		CartDao cartdao = new CartDao();
+		ServletContext application = this.getServletContext();
+		user = (OurUser) application.getAttribute("user");
+		String bookISBN=request.getParameter("bookISBN");
+		String Quantity=request.getParameter("Quantity");
+		String unitPrice=request.getParameter("unitPrice");
+		if (user != null){
+			int cartId;
+			cartId=cartdao.Add(user);
+			cartdao.AddBook(cartId, bookISBN, Quantity, unitPrice);
+			cartdao.UpdateCart(cartId);
+		}
+		else
+			response.sendRedirect("index.jsp");
 	}
 }

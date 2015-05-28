@@ -139,14 +139,14 @@
 						</p>
 					</div>
 
-					<form action="CartServlet?act=addcart&	bookISBN=${sessionScope.Book.iSBN}" method="post">
-						<input type="text" value="1" id="goodsNum" name="bookNum" class="text" />
+					<form action="CartServlet?act=addcart&	bookISBN=${sessionScope.Book.iSBN}&unitPrice=${sessionScope.Book.unitPrice}" method="post">
+						<input type="text" value="1" id="goodsNum" name="Quantity" class="text" />
 						<div class="btn">
 							<input type="button" value="+" id="add" name="btn" class="btn1" />
 							<input type="button" value="-" id="min" name="btn" class="btn2" />
 						</div>
 						<input class="submit" type="submit" value="加入购物车"></input> 当前总价：<label
-							id="total" style="color: red;"></label>
+							id="total"  style="color: red;"></label>
 					</form>
 				</div>
 			</div>
