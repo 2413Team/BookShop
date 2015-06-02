@@ -8,8 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import com.newBookShopWeb.database.DataSourceProvider;
 import com.newBookShopWeb.entity.Book;
 

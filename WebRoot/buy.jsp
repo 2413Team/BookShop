@@ -23,8 +23,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <h1>添加购物车成功</h1>
-    <a href="#">继续购物</a>
-    <a href="#">去购物车结算</a>
+    <div style="width:720px; height:180px; margin: 0 auto;">
+    	<img alt="" src="image/pic1.jpg" style="float: left;"/>
+    	<h2 style="width: 300px; float: left; text-indent:3px; font-size: 18px;">${sessionScope.Book.title}</h2>
+    	<h1 style="text-align: right; float: right;">已加入购物车！</h1>
+    	<div style="float: right; height: 30px; width:70%; margin-top: 5px; text-align: right;">
+    		<p>小计：￥${sessionScope.UnitPrice*sessionScope.Quantity }</p>
+    		<p>数量：${sessionScope.Quantity }</p>
+    	</div>
+    	<div style="float: right; height: 20px; width:70%; margin-top: 47px; text-align: right;">
+    		<a href="#" >去购物车结算</a>
+    		<a href="#" >继续购物</a>
+    	</div>
+    </div>
   </body>
 </html>

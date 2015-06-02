@@ -3,32 +3,14 @@ package com.newBookShopWeb.entity;
 import java.io.Serializable;
 
 public class Cartbook implements Serializable {
-	/*
-	 * quantity-数量
-	 * unitprice-对应的是这一个项目的总价，并非单本书的价格
-	 */
-	private int id;
-	private int cartsId;
-	private int bookISBN;
+	private Book book;
 	private int quantity;
-	private double unitprice;
-	public int getId() {
-		return id;
+	private String bookISBN;
+	public Book getBook() {
+		return book;
 	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public int getCartsId() {
-		return cartsId;
-	} 
-	public void setCartsId(int cartsId) {
-		this.cartsId = cartsId;
-	}
-	public int getBookISBN() {
-		return bookISBN;
-	}
-	public void setBookISBN(int bookISBN) {
-		this.bookISBN = bookISBN;
+	public void setBook(Book book) {
+		this.book = book;
 	}
 	public int getQuantity() {
 		return quantity;
@@ -36,11 +18,11 @@ public class Cartbook implements Serializable {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public double getUnitprice() {
-		return unitprice;
+	public String getBookISBN() {
+		return bookISBN;
 	}
-	public void setUnitprice(double unitprice) {
-		this.unitprice = unitprice;
+	public void setBookISBN(String bookISBN) {
+		this.bookISBN = bookISBN;
 	}
 	
 	

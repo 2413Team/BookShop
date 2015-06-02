@@ -4,8 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.newBookShopWeb.database.DataSourceProvider;
+import com.newBookShopWeb.entity.Book;
+import com.newBookShopWeb.entity.Cart;
+import com.newBookShopWeb.entity.Cartbook;
 import com.newBookShopWeb.entity.OurUser;
 
 public class CartDao {
@@ -20,7 +25,7 @@ public class CartDao {
 			e.printStackTrace();
 		}
 	}
-	
+	//添加购物车的方法
 	public int Add(OurUser user){
 		int cartId;
 		cartId=HaveCart(user);
@@ -29,14 +34,66 @@ public class CartDao {
 		cartId=HaveCart(user);
 		return cartId;
 	}
+	//添加购物车中的图书
 	public void AddBook(int cartId,String bookISBN,String Quantity,String unitprice){
 		AddCartBook(cartId, bookISBN, Quantity, unitprice);
-	}
-	public void UpdateCart(int cartId){
 		UpdateCartDao(cartId);
 	}
+	//得到购物车的方法
+	public List<Cartbook> getCart(int userid){
+		List<Cartbook> cart=new ArrayList<Cartbook>();
+		cart=getCartBook1(userid);
+		System.out.println(cart.get(0).getBookISBN());
+		cart=getCartBook2(cart);
+		System.out.println(cart.get(0).getBook().getTitle());
+		return cart;
+	}
+	private List<Cartbook> getCartBook2(List<Cartbook> cart){
+		try {
+			if(!conn.isClosed()){
+				for(int i=0;i<cart.size();i++){
+					String sql="SELECT * FROM books WHERE books.ISBN=?";
+					PreparedStatement stmt=conn.prepareStatement(sql);
+					stmt.setString(1, cart.get(i).getBookISBN());
+					ResultSet set=stmt.executeQuery();
+					if(set.next()){
+						Book book=new Book();
+						book=getOneBook(set);
+						cart.get(i).setBook(book);
+					}
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return cart;
+	}
 	
-	
+	private List<Cartbook> getCartBook1(int userid){
+		List<Cartbook> cart=new ArrayList<Cartbook>();
+		try {
+			if(!conn.isClosed()){
+				String sql="SELECT cb.bookISBN,cb.Quantity FROM carts c,cartbook cb WHERE c.UserId=? AND cb.CartsId=c.Id";
+				PreparedStatement stmt=conn.prepareStatement(sql);
+				stmt.setInt(1, userid);
+				ResultSet set=stmt.executeQuery();
+				if(set.next()){
+					System.out.println("开始读取");
+					Cartbook cartbook=new Cartbook();
+					cartbook.setBookISBN(set.getString("bookISBN"));
+					cartbook.setQuantity(set.getInt("Quantity"));
+					System.out.println("isbn:"+set.getString("bookISBN")+"\nquantity:"+set.getInt("Quantity"));
+					cart.add(cartbook);
+				}
+				return cart;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 	private int HaveCart(OurUser user){
 		try {
 			if(!conn.isClosed()){
@@ -76,7 +133,7 @@ public class CartDao {
 				stmt.setInt(1, cartId);
 				stmt.setString(2, bookISBN);
 				stmt.setInt(3, Integer.parseInt(Quantity));
-				stmt.setDouble(4, Double.parseDouble(Quantity)*Double.parseDouble(unitprice));
+				stmt.setDouble(4, Double.parseDouble(unitprice));
 				stmt.executeUpdate();
 			}
 		} catch (SQLException e) {
@@ -87,7 +144,7 @@ public class CartDao {
 	private void UpdateCartDao(int cartId){
 		try {
 			if(!conn.isClosed()){
-				String sql="UPDATE carts c SET c.TotalPrice=(SELECT SUM(cb.UnitPrice) FROM cartbook cb WHERE cb.CartsId=c.Id)"+
+				String sql="UPDATE carts c SET c.TotalPrice=(SELECT SUM(cb.UnitPrice*cb.Quantity) FROM cartbook cb WHERE cb.CartsId=c.Id)"+
 							"WHERE c.Id=?";
 				PreparedStatement stmt=conn.prepareStatement(sql);
 				stmt.setInt(1, cartId);
@@ -97,5 +154,28 @@ public class CartDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	private Book getOneBook(ResultSet set) {
+		Book book = new Book();
+		try {
+			book.setId(set.getInt("id"));
+			book.setTitle(set.getString("Title"));
+			book.setAuthor(set.getString("Author"));
+			book.setPublisherId(set.getInt("PublisherId"));
+			book.setPublisherDate(set.getString("PublishDate"));
+			book.setiSBN(set.getString("ISBN"));
+			book.setWordsCount(set.getInt("WordsCount"));
+			book.setUnitPrice(set.getFloat("UnitPrice"));
+			book.setContentDescription(set.getString("ContentDescription"));
+			book.setAurhorDescription(set.getString("AurhorDescription"));
+			book.setEditorComment(set.getString("EditorComment"));
+			book.settOc(set.getString("TOC"));
+			book.setCategoryId(set.getInt("CategoryId"));
+			book.setClicks(set.getInt("Clicks"));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return book;
 	}
 }
