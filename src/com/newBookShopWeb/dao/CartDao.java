@@ -43,12 +43,96 @@ public class CartDao {
 	public List<Cartbook> getCart(int userid){
 		List<Cartbook> cart=new ArrayList<Cartbook>();
 		cart=getCartBook1(userid);
-		System.out.println(cart.get(0).getBookISBN());
 		cart=getCartBook2(cart);
-		System.out.println(cart.get(0).getBook().getTitle());
 		return cart;
 	}
+	//数量增加
+	public void QuantityUp(String cartbookid){
+		try {
+			if(!conn.isClosed()){
+				String sql="UPDATE cartbook SET cartbook.Quantity=cartbook.Quantity+1 WHERE Id=?";
+				PreparedStatement stmt=conn.prepareStatement(sql);
+				stmt.setString(1, cartbookid);
+				stmt.executeUpdate();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	//数量减少
+	public void QuantityDown(String cartbookid){
+		try {
+			if(!conn.isClosed()){
+				String sql="UPDATE cartbook SET cartbook.Quantity=cartbook.Quantity-1 WHERE Id=?";
+				PreparedStatement stmt=conn.prepareStatement(sql);
+				stmt.setString(1, cartbookid);
+				stmt.executeUpdate();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	//得到总价
+	public Double GetCartTotal(OurUser user){
+		int cartId=HaveCart(user);
+		Double total=0.0;
+		try {
+			if(!conn.isClosed()){
+				String sql="SELECT SUM(cb.UnitPrice*cb.Quantity) FROM cartbook cb WHERE cb.CartsId=?";
+				PreparedStatement stmt=conn.prepareStatement(sql);
+				stmt.setInt(1, cartId);
+				ResultSet set=stmt.executeQuery();
+				if(set.next()){
+					total=set.getDouble(1);
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return total;
+	}
+	//按照图书的isbn来删除图书
+	public void deleteCartBook(String bookISBN,OurUser user){
+		try {
+			if(!conn.isClosed()){
+				String sql="DELETE FROM cartbook WHERE cartbook.bookISBN=?";
+				PreparedStatement stmt=conn.prepareStatement(sql);
+				stmt.setString(1, bookISBN);
+				stmt.executeUpdate();
+				int cartId=HaveCart(user);
+				UpdateCartDao(cartId);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void clearCart(OurUser user){
+		int cartId;
+		try {
+			if(!conn.isClosed()){
+				String sql="DELETE FROM cartbook WHERE cartbook.CartsId = (SELECT carts.Id FROM carts WHERE carts.UserId=? AND carts.Id=cartbook.CartsId)";
+				PreparedStatement stmt=conn.prepareStatement(sql);
+				stmt.setInt(1, user.getId());
+				stmt.executeUpdate();
+				cartId=HaveCart(user);
+				sql="DELETE FROM carts WHERE carts.Id =?";
+				stmt=conn.prepareStatement(sql);
+				stmt.setInt(1, cartId);
+				stmt.executeUpdate();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	private List<Cartbook> getCartBook2(List<Cartbook> cart){
+		Book book;
 		try {
 			if(!conn.isClosed()){
 				for(int i=0;i<cart.size();i++){
@@ -57,7 +141,7 @@ public class CartDao {
 					stmt.setString(1, cart.get(i).getBookISBN());
 					ResultSet set=stmt.executeQuery();
 					if(set.next()){
-						Book book=new Book();
+						book=new Book();
 						book=getOneBook(set);
 						cart.get(i).setBook(book);
 					}
@@ -74,16 +158,15 @@ public class CartDao {
 		List<Cartbook> cart=new ArrayList<Cartbook>();
 		try {
 			if(!conn.isClosed()){
-				String sql="SELECT cb.bookISBN,cb.Quantity FROM carts c,cartbook cb WHERE c.UserId=? AND cb.CartsId=c.Id";
+				String sql="SELECT cb.bookISBN,cb.Quantity,cb.Id FROM carts c,cartbook cb WHERE c.UserId=? AND cb.CartsId=c.Id";
 				PreparedStatement stmt=conn.prepareStatement(sql);
 				stmt.setInt(1, userid);
 				ResultSet set=stmt.executeQuery();
-				if(set.next()){
-					System.out.println("开始读取");
+				while(set.next()){
 					Cartbook cartbook=new Cartbook();
 					cartbook.setBookISBN(set.getString("bookISBN"));
 					cartbook.setQuantity(set.getInt("Quantity"));
-					System.out.println("isbn:"+set.getString("bookISBN")+"\nquantity:"+set.getInt("Quantity"));
+					cartbook.setId(set.getInt("id"));
 					cart.add(cartbook);
 				}
 				return cart;
@@ -155,6 +238,7 @@ public class CartDao {
 			e.printStackTrace();
 		}
 	}
+	
 	private Book getOneBook(ResultSet set) {
 		Book book = new Book();
 		try {

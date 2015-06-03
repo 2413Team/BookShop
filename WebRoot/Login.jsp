@@ -12,7 +12,7 @@
 <p style="width:100%; height: 2px; background-color: #c81623;"></p>
 	<div class="login">
 		<form method="post" action="userAct?act=login" name="loginForm">
-			<h2>登陆：</h2>
+			<h2>登录：</h2>
 				<input type="text"  name="loginId"  placeholder="请输入用户名"  required  class="userName" id="shuru"/>
 				<br>
 				<input type="password" name="loginPwd" placeholder="请输入密码"  required class="passWord" id="shuru"/>

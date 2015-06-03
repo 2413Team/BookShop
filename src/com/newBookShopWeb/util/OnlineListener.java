@@ -29,7 +29,7 @@ public class OnlineListener implements HttpSessionListener {
     public void sessionCreated(HttpSessionEvent arg0)  { 
          // TODO Auto-generated method stub
     	counter++;
-    	arg0.getSession().setMaxInactiveInterval(1);
+    	arg0.getSession().setMaxInactiveInterval(0);
     	arg0.getSession().getServletContext().setAttribute("online", new Integer(counter));
     }
 

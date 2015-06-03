@@ -1,0 +1,93 @@
+@CHARSET "UTF-8";
+
+a {
+	text-decoration: none;
+}
+
+ul {
+	list-style: none;
+}
+
+div.cart {
+	width: 960px;
+}
+
+div.cart .detail {
+	width: 800px;
+	height: 250px;
+	border: 1px solid #ffffff;
+	margin: 200px 0 0 570px;
+}
+
+div.cart .detail  p {
+	color: #ff0000;
+	display: block;
+	float: right;
+}
+
+div.cart .detail  p b {
+	color: #808080;
+}
+
+div.cart .detail  form {
+	float: right;
+	margin: 150px 0 0 50px;
+}
+
+div.cart .detail  form .continue {
+	height: 40px;
+	width: 100px;
+	background: #ff0000;
+	color: #ffffff;
+}
+
+div.cart .detail  form .order {
+	height: 40px;
+	width: 100px;
+	background: #ff0000;
+	color: #ffffff;
+}
+
+div.cart .detail  form.clear {
+	height: 40px;
+	width: 200px;
+	background: #ff0000;
+	color: #ffffff;
+	display: block;
+	float: right;
+}
+
+.cart .detail  table .tr1 td:HOVER {
+	color: red;
+}
+
+.cart .detail  table .tr td .check {
+	background: #00a0d8;
+}
+
+.cart .detail    .text {
+	width: 30px;
+	height: 28px;
+	font-size: 16px;
+	border: solid 1px #0080c0;
+	float: left;
+	text-indent: 6px;
+}
+
+.cart .detail    .btn1 {
+	width: 30px;
+	height: 30px;
+	color: #ffffff;
+	float: left;
+	background: #0080c0;
+	border: solid 1px #0080c0;
+}
+
+.cart .detail    .btn2 {
+	width: 30px;
+	height: 30px;
+	color: #ffffff;
+	float: left;
+	background: #0080c0;
+	border: solid 1px #0080c0;
+}
