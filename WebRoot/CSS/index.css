@@ -8,6 +8,27 @@
 	width: 1280px;
 }
 
+.daohang{
+	
+}
+
+.daohang li{
+	width:120px;
+	height:47px;
+	margin-left:13px;
+	margin-right:5px;
+	text-align:center;
+	line-height:47px;
+	border-top:#c81623 3px solid;
+	float: left;
+}
+
+.daohang li a{
+	width:100%;
+	height:100%;
+	display: block;
+}
+
 #kuangjia {
 	float: left;
 	margin-right: 1%;

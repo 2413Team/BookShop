@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link REL=stylesheet href="CSS/detailbook.css" type="text/css">
+<link REL=stylesheet href="CSS/book_detail.css" type="text/css">
 <script src="js/jquery.js"></script>
 <script src="js/jquery.validate.js"></script>
 <title>Speed Book</title>

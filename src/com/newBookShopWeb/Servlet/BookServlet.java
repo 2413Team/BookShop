@@ -70,7 +70,7 @@ public class BookServlet extends HttpServlet {
 		list=dao.getBookByName(request.getParameter("Name"));
 		HttpSession out=request.getSession();
 		out.setAttribute("List", list);
-		response.sendRedirect("adminBook.jsp");
+		response.sendRedirect("admin_book.jsp");
 	}
 	
 	protected void findBook(HttpServletRequest request, HttpServletResponse response) throws IOException{
@@ -84,7 +84,7 @@ public class BookServlet extends HttpServlet {
 		out.setAttribute("List", list);
 		out.setAttribute("page", page);
 		out.setAttribute("key", key);
-		response.sendRedirect("findbookSuccess.jsp");
+		response.sendRedirect("book_findsuccess.jsp");
 	}
 	
 	protected void catefindbook(HttpServletRequest request, HttpServletResponse response) throws IOException{
@@ -97,7 +97,7 @@ public class BookServlet extends HttpServlet {
 		out.setAttribute("List", list);
 		out.setAttribute("page", page);
 		out.setAttribute("id", id);
-		response.sendRedirect("findbookSuccess.jsp");
+		response.sendRedirect("book_findsuccess.jsp");
 	}
 	
 	protected void pubfindbook(HttpServletRequest request, HttpServletResponse response) throws IOException{
@@ -110,7 +110,7 @@ public class BookServlet extends HttpServlet {
 		out.setAttribute("List", list);
 		out.setAttribute("page", page);
 		out.setAttribute("id", id);
-		response.sendRedirect("findbookSuccess.jsp");
+		response.sendRedirect("book_findsuccess.jsp");
 	}
 
 	protected void hotbook(HttpServletRequest request, HttpServletResponse response) throws IOException{
@@ -123,7 +123,7 @@ public class BookServlet extends HttpServlet {
 		out.setAttribute("List", list);
 		out.setAttribute("page", page);
 		out.setAttribute("id", id);
-		response.sendRedirect("findbookSuccess.jsp");
+		response.sendRedirect("book_findsuccess.jsp");
 	}
 	
 	protected void newbook(HttpServletRequest request, HttpServletResponse response) throws IOException{
@@ -136,7 +136,7 @@ public class BookServlet extends HttpServlet {
 		out.setAttribute("List", list);
 		out.setAttribute("page", page);
 		out.setAttribute("id", id);
-		response.sendRedirect("findbookSuccess.jsp");
+		response.sendRedirect("book_findsuccess.jsp");
 	}
 	
 	protected void tjbook(HttpServletRequest request, HttpServletResponse response) throws IOException{
@@ -149,7 +149,7 @@ public class BookServlet extends HttpServlet {
 		out.setAttribute("List", list);
 		out.setAttribute("page", page);
 		out.setAttribute("id", id);
-		response.sendRedirect("findbookSuccess.jsp");
+		response.sendRedirect("book_findsuccess.jsp");
 	}
 	
 	protected void quantitybook(HttpServletRequest request, HttpServletResponse response) throws IOException{
@@ -162,7 +162,7 @@ public class BookServlet extends HttpServlet {
 		out.setAttribute("List", list);
 		out.setAttribute("page", page);
 		out.setAttribute("id", id);
-		response.sendRedirect("findbookSuccess.jsp");
+		response.sendRedirect("book_findsuccess.jsp");
 	}
 	
 	protected void detailbook(HttpServletRequest request, HttpServletResponse response) throws IOException{
@@ -172,6 +172,6 @@ public class BookServlet extends HttpServlet {
 		book=dao.getBookByISBN(bookisbn);
 		HttpSession out=request.getSession();
 		out.setAttribute("Book", book);
-		response.sendRedirect("detailbook.jsp");
+		response.sendRedirect("book_detail.jsp");
 	}
 }

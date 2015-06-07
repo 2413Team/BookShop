@@ -51,7 +51,7 @@ public class AdminServlet extends HttpServlet {
 		user=dao.doLogin(user);
 		if(user.getId()!=0)
 			session.setAttribute("LoginId", user.getLoginId());
-		response.sendRedirect("adminLogin.jsp");
+		response.sendRedirect("admin_login.jsp");
 	}
 	
 	protected void addBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -59,6 +59,6 @@ public class AdminServlet extends HttpServlet {
 		dao=new AdminDao();
 		if(dao.addBook(book))
 			System.out.println("³É¹¦"); 
-		response.sendRedirect("adminBook");
+		response.sendRedirect("admin_book.jsp");
 	}
 }

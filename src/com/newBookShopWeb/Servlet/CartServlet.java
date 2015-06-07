@@ -64,10 +64,10 @@ public class CartServlet extends HttpServlet {
 			out.setAttribute("Book", book);
 			out.setAttribute("UnitPrice", unitPrice);
 			out.setAttribute("Quantity",quantity );
-			response.sendRedirect("buy.jsp");
+			response.sendRedirect("book_buy.jsp");
 		}
 		else
-			response.sendRedirect("Login.jsp");
+			response.sendRedirect("user_login.jsp");
 	}
 	protected void GetCart(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
@@ -80,7 +80,7 @@ public class CartServlet extends HttpServlet {
 		HttpSession out=request.getSession();
 		out.setAttribute("Cart", cart);
 		out.setAttribute("Total", total);
-		response.sendRedirect("showCart.jsp");
+		response.sendRedirect("book_showcart.jsp");
 	}
 	protected void DeleteCartBook(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {

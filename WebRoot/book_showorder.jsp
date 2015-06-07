@@ -70,8 +70,7 @@
 
 				<input type="submit" value="继续购物" class="continue" id="continue"
 					name="continue" /> 
-				<input type="submit" value="提交订单" class="order"
-					id="order" name="order" /> 
+				<a class="order"	id="order" name="order"  href="OrderServlet?act=submitorder&total=${sessionScope.Total}">提交订单 </a>
 				<a class="clear" id="clear" name="clear"  href="CartServlet?act=clearcart"  style="width:20px; height: 10px;">清空购物车</a>
 			</form>
 

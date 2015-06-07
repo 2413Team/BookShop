@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>后台管理</title>
-<link rel="stylesheet" type="text/css" href="CSS/adminIndex.css" />
+<link rel="stylesheet" type="text/css" href="CSS/admin_index.css" />
 </head>
 
 <body>

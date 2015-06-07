@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>后台登录界面</title>
-<link rel="stylesheet"   type="text/css"   href="CSS/adminLogin.css" />
+<link rel="stylesheet"   type="text/css"   href="CSS/admin_login.css" />
 </head>
 
 <body>

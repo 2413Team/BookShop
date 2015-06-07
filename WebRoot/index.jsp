@@ -17,6 +17,13 @@
 <body >
 <ul style="width:1280px; height:50px; margin: 0 auto;">
 		<li style="float: left; width:150px; height:100%; background-color: #b1191a; line-height: 45px; color:#fff; ">图书种类</li>
+			<ul style="float: left;" class="daohang">
+				<li><a href="#">热门图书</a></li>
+				<li><a href="#">最新图书</a></li>
+				<li><a href="#">推荐图书</a></li>
+				<li><a href="#">投诉建议</a></li>
+				<li><a href="#">关于我们</a></li>
+			</ul>
 		<li style="float: right; width: 191px; height: 100%; margin-right:13.5px; background-color:green; line-height: 45px; color:#fff; ">出版社</li>
 </ul>
 <p style="width:100%; height: 2px; background-color: #c81623;"></p>

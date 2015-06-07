@@ -9,14 +9,20 @@ ul {
 }
 
 div.cart {
-	width: 960px;
+	width: 1000px;
+	margin:0 auto;
 }
 
 div.cart .detail {
-	width: 800px;
+	width: 100%;
 	height: 250px;
 	border: 1px solid #ffffff;
-	margin: 200px 0 0 570px;
+	margin: 100px 0 0 0;
+}
+
+.cart .detail table{
+	background-color:#fff4e8;
+	width:100%;
 }
 
 div.cart .detail  p {
@@ -29,32 +35,41 @@ div.cart .detail  p b {
 	color: #808080;
 }
 
+.total{
+	width: 150px;
+	height: 40px; 
+	text-align:center;
+	line-height:40px;
+	float: right;
+	margin-top: 20px;
+}
+
 div.cart .detail  form {
 	float: right;
-	margin: 150px 0 0 50px;
+	margin: 20px 0 0 150px;
 }
 
-div.cart .detail  form .continue {
+div.cart .detail  form .threebuttom {
 	height: 40px;
 	width: 100px;
 	background: #ff0000;
 	color: #ffffff;
-}
-
-div.cart .detail  form .order {
-	height: 40px;
-	width: 100px;
-	background: #ff0000;
-	color: #ffffff;
-}
-
-div.cart .detail  form.clear {
-	height: 40px;
-	width: 200px;
-	background: #ff0000;
-	color: #ffffff;
+	margin-right:15px;
+	text-align:center;
+	line-height:40px;
 	display: block;
-	float: right;
+	float: left;
+}
+
+.cart .detail  table .title td{
+	height: 50px;
+	border-left: #f3f3f3 solid 25px;
+	border-right: #f3f3f3 solid 25px;
+}
+
+.cart .detail  table .tr1 td{
+	border-top:25px solid #fff;
+	height: 220px;
 }
 
 .cart .detail  table .tr1 td:HOVER {
@@ -67,7 +82,7 @@ div.cart .detail  form.clear {
 
 .cart .detail    .text {
 	width: 30px;
-	height: 28px;
+	height: 30px;
 	font-size: 16px;
 	border: solid 1px #0080c0;
 	float: left;

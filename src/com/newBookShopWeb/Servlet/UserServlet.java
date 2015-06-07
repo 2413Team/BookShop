@@ -56,7 +56,7 @@ public class UserServlet extends HttpServlet {
 			resp.sendRedirect("index.jsp");
 		}
 		else{
-			resp.sendRedirect("Login.jsp");
+			resp.sendRedirect("user_login.jsp");
 		}	
 	}
 	protected void doRegister(HttpServletRequest req, HttpServletResponse resp) throws IOException{
@@ -69,9 +69,9 @@ public class UserServlet extends HttpServlet {
 		user.setPhone(req.getParameter("phone"));
 		user.setMail(req.getParameter("mail"));
 		if(dao.doRegister(user))
-				resp.sendRedirect("Login.jsp");
+				resp.sendRedirect("user_login.jsp");
 		else
-				resp.sendRedirect("register.jsp");
+				resp.sendRedirect("user_register.jsp");
 	}
 	protected void userExit(HttpServletRequest req, HttpServletResponse resp) throws IOException{
 		ServletContext application=this.getServletContext();

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="CSS/adminBook.css" />
+<link rel="stylesheet" type="text/css" href="CSS/admin_book.css" />
 <title>Insert title here</title>
 </head>
 <body>
@@ -35,7 +35,7 @@
             </form>      
       </div> 
       <div class="list">
-      	<%@include file="BookList.jsp" %>
+      	<%@include file="booklist.jsp" %>
       </div>
       <form action="AdminServlet">
        		<input type="submit"  value="增"  id="btn"  name="btn"  class="btnAdd"/>
