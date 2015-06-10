@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+
+a{text-decoration: none;}
+ul{ list-style:none;}
+
+div.content {width:1000px;height:250px;border:1px solid #ffffff;margin:0 auto;margin-top:140px;}
+
+.content table{width:1000px;}
+
+div.content  p{color: #ff0000; display: block; float:right;}
+
+.content  table .tr td .check{background: #00a0d8;} 
+.content  table .tr td {height:20px;}

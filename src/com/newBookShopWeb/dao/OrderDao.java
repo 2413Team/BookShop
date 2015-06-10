@@ -169,4 +169,59 @@ public class OrderDao {
 		}
 		return book;
 	}
+	
+	//得到购物车的方法
+		public List<Cartbook> getCart(int userid){
+			List<Cartbook> cart=new ArrayList<Cartbook>();
+			cart=getOrderBook1(userid);
+			cart=getOrderBook2(cart);
+			return cart;
+		}
+	
+	private List<Cartbook> getOrderBook2(List<Cartbook> cart){
+		Book book;
+		try {
+			if(!conn.isClosed()){
+				for(int i=0;i<cart.size();i++){
+					String sql="SELECT * FROM books WHERE books.id=?";
+					PreparedStatement stmt=conn.prepareStatement(sql);
+					stmt.setInt(1, cart.get(i).getId());
+					ResultSet set=stmt.executeQuery();
+					if(set.next()){
+						book=new Book();
+						book=getOneBook(set);
+						cart.get(i).setBook(book);
+					}
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return cart;
+	}
+	
+	private List<Cartbook> getOrderBook1(int userid){
+		List<Cartbook> cart=new ArrayList<Cartbook>();
+		try {
+			if(!conn.isClosed()){
+				String sql="SELECT ob.BookID,ob.Quantity,ob.Id FROM orders o,orderbook ob WHERE o.UserId=18 AND ob.OrderID=o.Id";
+				PreparedStatement stmt=conn.prepareStatement(sql);
+				stmt.setInt(1, userid);
+				ResultSet set=stmt.executeQuery();
+				while(set.next()){
+					Cartbook cartbook=new Cartbook();
+					cartbook.setBookISBN(set.getString("bookISBN"));
+					cartbook.setQuantity(set.getInt("Quantity"));
+					cartbook.setId(set.getInt("id"));
+					cart.add(cartbook);
+				}
+				return cart;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			return null;
+		}
 }

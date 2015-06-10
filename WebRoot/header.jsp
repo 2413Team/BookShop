@@ -14,15 +14,15 @@
        		<div class="user">  
        			<c:if test="${applicationScope.user==null}">
             		<ul>
-                		<li><a href="register.jsp">注册</a></li>
-            	    	<li><a href="Login.jsp">登录</a></li>
+                		<li><a href="user_register.jsp">注册</a></li>
+            	    	<li><a href="user_login.jsp">登录</a></li>
           		      	<li><a href="">购物车</a>(<a href="">0</a>)</li>
           	 	 	</ul>
           	  </c:if>
            	 <c:if test="${applicationScope.user!=null}">
             		<ul>
                 		<li>欢迎回来!   <a href="#">${applicationScope.user.loginId }</a></li>
-                		<li><a href="CartServlet?act=getcart">购物车</a>(<a href="">?</a>)</li>
+                		<li><a href="CartServlet?act=getcart&goorder=false">购物车</a>(<a href="">?</a>)</li>
                 		<li><a href="userAct?act=exit">退出登录</a></li>
             		</ul>
         	    </c:if>

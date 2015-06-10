@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.newBookShopWeb.dao.CartDao;
 import com.newBookShopWeb.dao.OrderDao;
@@ -42,5 +43,18 @@ public class OrderServlet extends HttpServlet {
 		Double total=Double.parseDouble(request.getParameter("total"));
 		List<Cartbook> cart=cartdao.getCart(user.getId());
 		orderdao.SubmitOrder(user, total, cart);
+		response.sendRedirect("book_myorder.jsp");
+	}
+	protected void GetOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		CartDao catdao=new CartDao();
+		Double total;
+		ServletContext application = this.getServletContext();
+		user = (OurUser) application.getAttribute("user");
+		List<Cartbook> cart=catdao.getCart(user.getId());
+		total=catdao.GetCartTotal(user);
+		HttpSession out=request.getSession();
+		out.setAttribute("Cart", cart);
+		out.setAttribute("Total", total);
+		response.sendRedirect("book_showcart.jsp");
 	}
 }

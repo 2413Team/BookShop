@@ -32,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		<p>数量：${sessionScope.Quantity }</p>
     	</div>
     	<div style="float: right; height: 20px; width:70%; margin-top: 47px; text-align: right;">
-    		<a href="CartServlet?act=getcart" >去购物车结算</a>
+    		<a href="CartServlet?act=getcart&goorder=false" >去购物车结算</a>
     		<a href="#" >继续购物</a>
     	</div>
     </div>

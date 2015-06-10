@@ -1,0 +1,29 @@
+@CHARSET "UTF-8";
+a{text-decoration: none;}
+ul{ list-style:none;}
+
+.content{width:800px;margin: 0 auto;border:solid 1px #c0c0c0;margin-top:5px;}
+.content #title {background:#e8e8e8;}
+.content #title h3{margin:0px 0 0 50px;}
+
+.content .user{background:white;width:700px;height:120px;margin:0px 0 0 50px;}
+.content .user h5{margin:5px 0 0  20px;}
+.content .user span{float:left;margin:30px 0 0 20px;}
+
+.content .buyer{background:white;width:700px;height:100px;margin:0px 0 0 50px;border-top:solid 1px #c0c0c0;}
+.content .buyer h5{margin:5px 0 0  20px;}
+.content .buyer #buy1{margin:15px 0 0 20px;}
+.content .buyer #buy2{margin:10px 0 0 20px;}
+
+.content .order{background:white;width:700px;margin:0px 0 0 50px;border-top:solid 1px #c0c0c0;}
+.content .order h5{margin:5px 0 0  20px;}
+
+.content .order .leftorder{width:650px;height:65px;border-bottom:solid 1px #c0c0c0;margin:0 0 0 20px;}
+.content .order .leftorder #order1{margin:15px 0 0 20px;}
+.content .order .leftorder #order2{margin:10px 0 0 20px;}
+
+.content .order .rightorder table{margin:10px 0 0 20px ;width:650px;}
+
+div.content  p{color: #ff0000; display: block; float:right;line-height:40px;height:40px;margin:40px 10px 0 0;}
+div.content  form{float:right;margin:40px 0 0 0;}
+div.content  form .smallorder{height:40px;width:100px; background: #ff0000; color: #ffffff;}

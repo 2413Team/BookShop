@@ -2,9 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="header.jsp" %>
-<jsp:useBean id="dao" class="com.newBookShopWeb.dao.BookDao" scope="page"></jsp:useBean>
-<jsp:useBean id="cdao" class="com.newBookShopWeb.dao.CategoriesDao" scope="page"></jsp:useBean>
-<jsp:useBean id="pdao" class="com.newBookShopWeb.dao.PublishersDao" scope="page"></jsp:useBean>
+<jsp:useBean id="dao" class="com.newBookShopWeb.dao.BookDao" scope="page" />
+<jsp:useBean id="cdao" class="com.newBookShopWeb.dao.CategoriesDao" scope="page"/>
+<jsp:useBean id="pdao" class="com.newBookShopWeb.dao.PublishersDao" scope="page"/>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>

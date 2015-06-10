@@ -37,6 +37,8 @@ public class CartServlet extends HttpServlet {
 			AddCart(request, response);
 		if(act.equals("getcart"))
 			GetCart(request, response);
+		if(act.equals("getordercart"))
+			GetOrderCart(request, response);
 		if(act.equals("deletecartbook"))
 			DeleteCartBook(request, response);
 		if(act.equals("clearcart"))
@@ -81,6 +83,20 @@ public class CartServlet extends HttpServlet {
 		out.setAttribute("Cart", cart);
 		out.setAttribute("Total", total);
 		response.sendRedirect("book_showcart.jsp");
+	}
+	
+	protected void GetOrderCart(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		CartDao catdao=new CartDao();
+		Double total;
+		ServletContext application = this.getServletContext();
+		user = (OurUser) application.getAttribute("user");
+		List<Cartbook> cart=catdao.getCart(user.getId());
+		total=catdao.GetCartTotal(user);
+		HttpSession out=request.getSession();
+		out.setAttribute("Cart", cart);
+		out.setAttribute("Total", total);
+		response.sendRedirect("book_showorder.jsp");
 	}
 	protected void DeleteCartBook(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {

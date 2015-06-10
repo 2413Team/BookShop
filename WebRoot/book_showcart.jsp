@@ -68,7 +68,7 @@
 
 			<form>
 				<a class="threebuttom"  href="index.jsp">继续购物</a> 
-				<a class="threebuttom"	 href="OrderServlet?act=submitorder&total=${sessionScope.Total}">提交订单 </a>
+				<a class="threebuttom"	 href="CartServlet?act=getordercart">提交订单 </a>
 				<a class="threebuttom" href="CartServlet?act=clearcart" >清空购物车</a>
 			</form>
 
