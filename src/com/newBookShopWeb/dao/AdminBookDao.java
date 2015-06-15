@@ -31,7 +31,7 @@ public class AdminBookDao {
 				stmt = conn.prepareCall("{call pro_binsert(?,?,?,?,?,?,?,?,?,?,?,?,?)}");
 				stmt.setString(1, b.getTitle());
 				stmt.setString(2, b.getAuthor());
-				stmt.setInt(b.getPublisherId(), 3);
+				stmt.setInt(3,2);
 				stmt.setString(4, date);
 				stmt.setString(5, b.getiSBN());
 				stmt.setInt(b.getWordsCount(), 6);
@@ -40,8 +40,8 @@ public class AdminBookDao {
 				stmt.setString(9, b.getAurhorDescription());
 				stmt.setString(10, b.getEditorComment());
 				stmt.setString(11, b.gettOc());
-				stmt.setInt(b.getCategoryId(), 12);
-				stmt.setInt(b.getClicks(), 13);
+				stmt.setInt(12,28);
+				stmt.setInt(13,0);
 				int what = stmt.executeUpdate();
 				if(what!= 0)
 					return true;

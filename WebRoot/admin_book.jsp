@@ -61,9 +61,7 @@
 		</c:catch>
 		<c:out value="${e}"></c:out>
 	</div>
-	<form action="AdminServlet">
-       		<input type="submit"  value="增"  id="btn"  name="btn"  class="btnAdd"/>
-      </form>
+	<a href="javascript:window.open('admin_addbook.jsp','newwindow','height=600,width=250,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no')"  class="btnAdd">添加</a>
 
 </body>
 </html>

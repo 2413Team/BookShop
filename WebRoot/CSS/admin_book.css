@@ -100,9 +100,8 @@ body {
 }
 
 .btnAdd {
-	width: 80px;
-	height: 32px;
-	margin: 50px 0 0 405px;
+	margin-left:85px;
+	float:left;
 }
 
 .booklist{}
