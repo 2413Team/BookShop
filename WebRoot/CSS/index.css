@@ -19,7 +19,6 @@
 	margin-right:5px;
 	text-align:center;
 	line-height:47px;
-	border-top:#c81623 3px solid;
 	float: left;
 }
 
@@ -27,6 +26,11 @@
 	width:100%;
 	height:100%;
 	display: block;
+	color:#666;
+}
+
+.daohang li a:HOVER{
+	color:fuchsia;
 }
 
 #kuangjia {
