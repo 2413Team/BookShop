@@ -39,8 +39,6 @@
       </div>
       <form action="AdminServlet">
        		<input type="submit"  value="增"  id="btn"  name="btn"  class="btnAdd"/>
-       		<input type="submit"  value="删"  id="btn"  name="btn"  class="btnDel"/>
-       		<input type="submit"  value="改"  id="btn"  name="btn"  class="btnUpt"/>
       </form>
 
 </body>

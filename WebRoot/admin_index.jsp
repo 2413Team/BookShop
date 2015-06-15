@@ -22,7 +22,7 @@
          <ul style="list-style:none;">
               <li><a href="#">关于我们</a></li>
               <li><a href="#">客户服务</a></li>
-              <li><a href="adminBook.jsp">图书管理</a></li>
+              <li><a href="admin_book.jsp">图书管理</a></li>
               <li><a href="order.jsp">订单管理</a></li>
               <li><a href="#">用户管理</a></li>
          </ul>

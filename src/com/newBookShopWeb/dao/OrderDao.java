@@ -36,14 +36,9 @@ public class OrderDao {
 	}
 	//得到购物车的方法
 		public List<Cartbook> getOrder(int userid){
-			System.out.println("0");
 			List<Cartbook> cart=new ArrayList<Cartbook>();
-			System.out.println("2");
 			cart=getOrderBook1(userid);
-			System.out.println("size:"+cart.size());
-			System.out.println("3");
 			cart=getOrderBook2(cart);
-			System.out.println("4");
 			return cart;
 		}
 	/*
@@ -64,7 +59,6 @@ public class OrderDao {
 				stmt.setDouble(3, total);
 				stmt.executeUpdate();
 				
-				System.out.println("执行完插入一个订单的操作");
 				String sql="SELECT * FROM orders WHERE UserId=? ORDER BY OrderDate DESC";
 				PreparedStatement pstmt=conn.prepareStatement(sql);
 				pstmt.setInt(1, user.getId());
@@ -72,7 +66,6 @@ public class OrderDao {
 				if(set.next()){
 					orderid=set.getInt("id");
 				}
-				System.out.println("执行完查询订单ID的操作："+orderid);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -140,7 +133,6 @@ public class OrderDao {
 					if(set.next()){
 						book=new Book();
 						book=getOneBook(set);
-						System.out.println(book.getTitle());
 						cart.get(i).setBook(book);				
 					}
 				}
