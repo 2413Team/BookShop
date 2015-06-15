@@ -104,3 +104,15 @@ body {
 	height: 32px;
 	margin: 50px 0 0 405px;
 }
+
+.booklist{}
+.booklist:HOVER {
+	background-color: #999;
+	color:white;
+}
+.booklist:HOVER a{color:white;}
+.booklist a{color:black;}
+.booklist .unitprice{color:red;}
+.booklist:HOVER .unitprice {
+	color:blue;
+}
