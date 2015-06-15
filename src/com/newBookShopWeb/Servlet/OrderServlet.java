@@ -34,6 +34,8 @@ public class OrderServlet extends HttpServlet {
 		String act=request.getParameter("act");
 		if(act.equals("submitorder"))
 			SubmitOrder(request, response);
+		if(act.equals("getorder"))
+			GetOrder(request, response);
 	}
 	protected void SubmitOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		OrderDao orderdao=new OrderDao();
@@ -46,15 +48,12 @@ public class OrderServlet extends HttpServlet {
 		response.sendRedirect("book_myorder.jsp");
 	}
 	protected void GetOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		CartDao catdao=new CartDao();
-		Double total;
+		OrderDao orderdao=new OrderDao();
 		ServletContext application = this.getServletContext();
 		user = (OurUser) application.getAttribute("user");
-		List<Cartbook> cart=catdao.getCart(user.getId());
-		total=catdao.GetCartTotal(user);
+		List<Cartbook> cart=orderdao.getOrder(user.getId());
 		HttpSession out=request.getSession();
 		out.setAttribute("Cart", cart);
-		out.setAttribute("Total", total);
-		response.sendRedirect("book_showcart.jsp");
+		response.sendRedirect("book_myorder.jsp");
 	}
 }

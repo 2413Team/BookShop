@@ -21,7 +21,7 @@
           	  </c:if>
            	 <c:if test="${applicationScope.user!=null}">
             		<ul>
-                		<li>欢迎回来!   <a href="#">${applicationScope.user.loginId }</a></li>
+                		<li>欢迎回来!   <a href="OrderServlet?act=getorder">${applicationScope.user.loginId }</a></li>
                 		<li><a href="CartServlet?act=getcart&goorder=false">购物车</a>(<a href="">?</a>)</li>
                 		<li><a href="userAct?act=exit">退出登录</a></li>
             		</ul>

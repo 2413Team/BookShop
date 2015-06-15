@@ -1,0 +1,109 @@
+
+
+DELIMITER $$
+
+create procedure pro_bupdate (bId int(11),bTitle VARCHAR(200),bAuthor VARCHAR(200),bPublisherId INT(11),bPublishDate DATETIME,bISBN VARCHAR(50),bWordsCount INT(11),bUnitPrice DECIMAL(10,0),bContentDescription TEXT,bAurhorDescription TEXT,bEditorComment VARCHAR(50),bTOC VARCHAR(200),bCategoryId INT(11),bClicks INT(11))
+
+begin
+	
+update books set Title=bTitle,Author=bAuthor,PublisherId=bPublisherId,PublishDate=bPublishDate,ISBN=bISBN,WordsCount=bWordsCount,UnitPrice=bUnitPrice,ContentDescription=bContentDescription,AurhorDescription=bAurhorDescription,EditorComment=bEditorComment,TOC=bTOC,CategoryId=bCategoryId,Clicks=bClicks where Id=bId;
+
+end$$
+
+
+DELIMITER $$
+
+
+CREATE procedure pro_binsert(bTitle VARCHAR(200),bAuthor VARCHAR(200),bPublisherId INT(11),bPublishDate DATETIME,bISBN VARCHAR(50),bWordsCount INT(11),bUnitPrice DECIMAL(10,0),bContentDescription TEXT,bAurhorDescription TEXT,bEditorComment VARCHAR(50),bTOC VARCHAR(200),bCategoryId INT(11),bClicks INT(11))
+
+begin
+
+     insert into books value(null,bTitle,bAuthor,bPublisherId,bPublishDate,bISBN,bWordsCount,bUnitPrice,bContentDescription,bAurhorDescription,bEditorComment,bTOC,bCategoryId,bClicks);
+
+end$$
+
+
+
+DELIMITER $$
+
+
+CREATE procedure  pro_bdelete(bid int(11))
+
+begin
+    
+ delete from books where id=bid;
+
+end$$
+
+
+
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `check_members`(id varchar(50),pwd varchar(50))
+begin
+			select * from users where users.LoginId=id and users.LoginPwd=pwd
+			and users.UserStateId=(select userstates.Id from userstates where userstates.Name='正常');
+        end
+
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pro_getBookByC`(id int(11))
+begin
+   select b.* from books b,categories c where b.categoryId=c.id and c.id=id;
+end
+
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pro_getCategory`()
+begin
+   select * from categories;
+end
+
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pro_htlogin`(id varchar(50),pwd varchar(50))
+begin
+			select * from users where users.LoginId=id and users.LoginPwd=pwd and users.UserRoleId=(select userroles.Id from userroles where userroles.Name='管理员')
+			and users.UserStateId=(select userstates.Id from userstates where userstates.Name='正常');
+        end
+
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pro_insertobook`(orderid int,bookid int,quantity int,unitprice DECIMAL(18,0))
+begin
+	insert into orderbook values(null,orderid,bookid,quantity,unitprice);
+end
+
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pro_insertorder`(orderdate DATETIME,userid int,totalprice DECIMAL(10,2))
+begin
+	insert into orders values(null,orderdate,userid,totalprice);
+end
+
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pro_querybook`(bookname varchar(200))
+begin
+   select * from books where title like concat('%',bookname,'%');
+end
+
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pro_register`(LoginId varchar(50),LoginPwd varchar(50),Name varchar(50),Address varchar(200),Phone varchar(100),Mail varchar(100))
+begin
+	insert into users values(null,LoginId,LoginPwd,Name,Address,Phone,Mail,1,1);
+ end
+
+
+
+
+
+
+
+
+
+
+
+
+

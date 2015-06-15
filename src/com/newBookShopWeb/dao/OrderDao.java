@@ -36,57 +36,15 @@ public class OrderDao {
 	}
 	//得到购物车的方法
 		public List<Cartbook> getOrder(int userid){
+			System.out.println("0");
 			List<Cartbook> cart=new ArrayList<Cartbook>();
-			cart=getCartBook1(userid);
-			cart=getCartBook2(cart);
+			System.out.println("2");
+			cart=getOrderBook1(userid);
+			System.out.println("size:"+cart.size());
+			System.out.println("3");
+			cart=getOrderBook2(cart);
+			System.out.println("4");
 			return cart;
-		}
-		
-		private List<Cartbook> getCartBook2(List<Cartbook> cart){
-			Book book;
-			try {
-				if(!conn.isClosed()){
-					for(int i=0;i<cart.size();i++){
-						String sql="SELECT * FROM books WHERE books.ISBN=?";
-						PreparedStatement stmt=conn.prepareStatement(sql);
-						stmt.setString(1, cart.get(i).getBookISBN());
-						ResultSet set=stmt.executeQuery();
-						if(set.next()){
-							book=new Book();
-							book=getOneBook(set);
-							cart.get(i).setBook(book);
-						}
-					}
-				}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			return cart;
-		}
-		
-		private List<Cartbook> getCartBook1(int userid){
-			List<Cartbook> cart=new ArrayList<Cartbook>();
-			try {
-				if(!conn.isClosed()){
-					String sql="SELECT cb.bookISBN,cb.Quantity,cb.Id FROM carts c,cartbook cb WHERE c.UserId=? AND cb.CartsId=c.Id";
-					PreparedStatement stmt=conn.prepareStatement(sql);
-					stmt.setInt(1, userid);
-					ResultSet set=stmt.executeQuery();
-					while(set.next()){
-						Cartbook cartbook=new Cartbook();
-						cartbook.setBookISBN(set.getString("bookISBN"));
-						cartbook.setQuantity(set.getInt("Quantity"));
-						cartbook.setId(set.getInt("id"));
-						cart.add(cartbook);
-					}
-					return cart;
-				}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			return null;
 		}
 	/*
 	 * 该方法执行插入一个订单的操作，但是每次插入都是一个单独的订单
@@ -170,14 +128,6 @@ public class OrderDao {
 		return book;
 	}
 	
-	//得到购物车的方法
-		public List<Cartbook> getCart(int userid){
-			List<Cartbook> cart=new ArrayList<Cartbook>();
-			cart=getOrderBook1(userid);
-			cart=getOrderBook2(cart);
-			return cart;
-		}
-	
 	private List<Cartbook> getOrderBook2(List<Cartbook> cart){
 		Book book;
 		try {
@@ -185,12 +135,13 @@ public class OrderDao {
 				for(int i=0;i<cart.size();i++){
 					String sql="SELECT * FROM books WHERE books.id=?";
 					PreparedStatement stmt=conn.prepareStatement(sql);
-					stmt.setInt(1, cart.get(i).getId());
+					stmt.setInt(1, cart.get(i).getBookid());
 					ResultSet set=stmt.executeQuery();
 					if(set.next()){
 						book=new Book();
 						book=getOneBook(set);
-						cart.get(i).setBook(book);
+						System.out.println(book.getTitle());
+						cart.get(i).setBook(book);				
 					}
 				}
 			}
@@ -205,15 +156,15 @@ public class OrderDao {
 		List<Cartbook> cart=new ArrayList<Cartbook>();
 		try {
 			if(!conn.isClosed()){
-				String sql="SELECT ob.BookID,ob.Quantity,ob.Id FROM orders o,orderbook ob WHERE o.UserId=18 AND ob.OrderID=o.Id";
+				String sql="SELECT ob.BookID,ob.Quantity,ob.Id FROM orders o,orderbook ob WHERE o.UserId=? AND ob.OrderID=o.Id";
 				PreparedStatement stmt=conn.prepareStatement(sql);
 				stmt.setInt(1, userid);
 				ResultSet set=stmt.executeQuery();
 				while(set.next()){
 					Cartbook cartbook=new Cartbook();
-					cartbook.setBookISBN(set.getString("bookISBN"));
 					cartbook.setQuantity(set.getInt("Quantity"));
 					cartbook.setId(set.getInt("id"));
+					cartbook.setBookid(set.getInt("bookid"));
 					cart.add(cartbook);
 				}
 				return cart;

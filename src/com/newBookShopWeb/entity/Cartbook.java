@@ -7,6 +7,7 @@ public class Cartbook implements Serializable {
 	private Book book;
 	private int quantity;
 	private String bookISBN;
+	private int bookid;
 	public Book getBook() {
 		return book;
 	}
@@ -30,6 +31,12 @@ public class Cartbook implements Serializable {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public int getBookid() {
+		return bookid;
+	}
+	public void setBookid(int bookid) {
+		this.bookid = bookid;
 	}
 	
 	
