@@ -48,6 +48,31 @@ public class BookDao {
 		}
 		return null;
 	}
+	
+	/*
+	 * 根据图书id查询
+	 */
+	public List<Book> getBookById(int bookid) {
+		List<Book> list=new ArrayList<Book>();
+		try {
+			if (!conn.isClosed()) {
+				String sql = "SELECT * FROM books WHERE id =?";
+				PreparedStatement stmt = conn.prepareStatement(sql);
+				stmt.setInt(1, bookid);
+				ResultSet set = stmt.executeQuery();
+				while (set.next()) {
+					Book book =new Book();
+					book = getOneBook(set);
+					list.add(book);
+				}
+				return list;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	/*
 	 * 根据ID查询图书

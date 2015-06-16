@@ -2,6 +2,7 @@ package com.newBookShopWeb.dao;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -27,14 +28,15 @@ public class AdminBookDao {
 		String date=fmt.format(new Date());
   	  try {
 			if (!conn.isClosed()) {
-				CallableStatement stmt;
-				stmt = conn.prepareCall("{call pro_binsert(?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+				PreparedStatement stmt;
+				String sql="INSERT INTO books VALUE(null,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				stmt = conn.prepareStatement(sql);
 				stmt.setString(1, b.getTitle());
 				stmt.setString(2, b.getAuthor());
 				stmt.setInt(3,2);
 				stmt.setString(4, date);
 				stmt.setString(5, b.getiSBN());
-				stmt.setInt(b.getWordsCount(), 6);
+				stmt.setInt(6,b.getWordsCount());
 				stmt.setDouble(7, b.getUnitPrice());
 				stmt.setString(8, b.getContentDescription());
 				stmt.setString(9, b.getAurhorDescription());
@@ -43,7 +45,25 @@ public class AdminBookDao {
 				stmt.setInt(12,28);
 				stmt.setInt(13,0);
 				int what = stmt.executeUpdate();
-				if(what!= 0)
+				if(what!= 0){
+					return true;
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public boolean deleteBook(Book book){
+		try {
+			if(!conn.isClosed()){
+				String sql="DELETE FROM books WHERE id=?";
+				PreparedStatement stmt=conn.prepareStatement(sql);
+				stmt.setInt(1, book.getId());
+				int flag=stmt.executeUpdate();
+				if(flag!=0)
 					return true;
 			}
 		} catch (SQLException e) {
@@ -58,22 +78,37 @@ public class AdminBookDao {
 		String date=fmt.format(new Date());
 	  try {
 			if (!conn.isClosed()) {
-				CallableStatement stmt;
-				stmt = conn	.prepareCall("{call pro_bupdate(?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+				String sql="UPDATE books SET "
+						+ "Title=?,"
+						+ "Author=?,"
+						+ "PublisherId=?,"
+						+ "PublishDate=?,"
+						+ "ISBN=?,"
+						+ "WordsCount=?,"
+						+ "UnitPrice=?,"
+						+ "ContentDescription=?,"
+						+ "AurhorDescription=?,"
+						+ "EditorComment=?,"
+						+ "TOC=?,"
+						+ "CategoryId=?,"
+						+ "Clicks=? "
+						+ "WHERE Id=?;";
+				PreparedStatement stmt=conn.prepareStatement(sql);
+				stmt = conn.prepareStatement(sql);
 				stmt.setString(1, b.getTitle());
 				stmt.setString(2, b.getAuthor());
-				stmt.setInt(b.getPublisherId(), 3);
+				stmt.setInt(3,2);
 				stmt.setString(4, date);
 				stmt.setString(5, b.getiSBN());
-				stmt.setInt(b.getWordsCount(), 6);
+				stmt.setInt(6,b.getWordsCount());
 				stmt.setDouble(7, b.getUnitPrice());
 				stmt.setString(8, b.getContentDescription());
 				stmt.setString(9, b.getAurhorDescription());
 				stmt.setString(10, b.getEditorComment());
 				stmt.setString(11, b.gettOc());
-				stmt.setInt(b.getCategoryId(), 12);
-				stmt.setInt(b.getClicks(), 13);
-				stmt.setInt(b.getId(), 14);
+				stmt.setInt(12,28);
+				stmt.setInt(13,0);
+				stmt.setInt(14, b.getId());
 				int what = stmt.executeUpdate();
 				if(what!=0)
 					return true;

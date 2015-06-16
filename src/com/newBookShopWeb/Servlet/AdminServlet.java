@@ -37,8 +37,6 @@ public class AdminServlet extends HttpServlet {
 		act=request.getParameter("act");
 		if(act.equals("login"))
 			doLogin(request, response);
-		if(act.equals("addbook"))
-			addBook(request,response);
 	}
 	
 	protected void doLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -49,16 +47,12 @@ public class AdminServlet extends HttpServlet {
 		user.setLoginPwd(request.getParameter("LoginPwd"));
 		HttpSession session=request.getSession();
 		user=dao.doLogin(user);
-		if(user.getId()!=0)
+		System.out.println(user.getId());
+		if(user.getId()!=0){
 			session.setAttribute("LoginId", user.getLoginId());
+			response.sendRedirect("admin_index.jsp");
+		}
 		response.sendRedirect("admin_login.jsp");
 	}
 	
-	protected void addBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		book=new Book();
-		dao=new AdminDao();
-		if(dao.addBook(book))
-			System.out.println("³É¹¦"); 
-		response.sendRedirect("admin_book.jsp");
-	}
 }

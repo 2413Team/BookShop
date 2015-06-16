@@ -20,17 +20,17 @@
         </ul>
     </div>
     
-    <div class="nav">
+      <div class="nav">
          <ul style="list-style:none;">
               <li><a href="admin_index.jsp">关于我们</a></li>
               <li><a href="#">客户服务</a></li>
               <li><a href="admin_book.jsp">图书管理</a></li>
-              <li><a href="admin_order.jsp">订单管理</a></li>
+              <li><a href="admin_categories.jsp">图书种类管理</a></li>
               <li><a href="#">用户管理</a></li>
          </ul>
     </div>
           <div class="search">
-            <form action="BookServlet?act=get" method="post" id=search name="search">
+            <form action="BookServlet?act=getcategories" method="post" id=search name="search">
                       <input type="text"  value=""  id="text"  name="Name"  class="text"/>
                       <input type="submit"  value="搜索"  id="btn"  name="btn"  class="btn"/>
             </form>      
@@ -45,13 +45,11 @@
 						<ul style="list-style: none;">
 							<li>
 								<div style="overflow: hidden;">
-									<a href="adminBook.jsp">${b.title}</a>
+									<a href="adminBook.jsp">${b.name}</a>
 								</div>
-								<div style="float: left;" class="unitprice">￥${b.unitPrice}</div>
-								<div style="float: left; margin-left: 15px; ">${b.author}</div>
 								<div style="float: right; margin-right: 15px;">
-									<a href="#">修改</a>
-									<a href="#">删除</a>
+									<a href="AdminCategoriesServlet?act=getCategories&categoriesId=${b.id}">修改</a>
+									<a href="AdminCategoriesServlet?act=deleteCategories&categoriesId=${b.id}">删除</a>
 								</div>
 							</li>
 						</ul>
@@ -61,9 +59,8 @@
 		</c:catch>
 		<c:out value="${e}"></c:out>
 	</div>
-	<form action="AdminServlet">
-       		<input type="submit"  value="增"  id="btn"  name="btn"  class="btnAdd"/>
-      </form>
+	<a href="javascript:window.open('admin_addcategories.jsp','newwindow','height=300,width=250,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no')"  class="btnAdd">添加</a>
+
 
 </body>
 </html>

@@ -25,7 +25,7 @@
               <li><a href="admin_index.jsp">关于我们</a></li>
               <li><a href="#">客户服务</a></li>
               <li><a href="admin_book.jsp">图书管理</a></li>
-              <li><a href="admin_order.jsp">订单管理</a></li>
+              <li><a href="admin_categories.jsp">图书种类管理</a></li>
               <li><a href="#">用户管理</a></li>
          </ul>
     </div>
@@ -45,13 +45,13 @@
 						<ul style="list-style: none;">
 							<li>
 								<div style="overflow: hidden;">
-									<a href="adminBook.jsp">${b.title}</a>
+									<a href="BookServlet?act=detailbook&bookisbn=${book.iSBN}'">${b.title}</a>
 								</div>
 								<div style="float: left;" class="unitprice">￥${b.unitPrice}</div>
 								<div style="float: left; margin-left: 15px; ">${b.author}</div>
 								<div style="float: right; margin-right: 15px;">
-									<a href="#">修改</a>
-									<a href="#">删除</a>
+									<a href="AdminBookServlet?act=getbook&bookisbn=${b.iSBN}">修改</a>
+									<a href="AdminBookServlet?act=deletebook&bookid=${b.id}">删除</a>
 								</div>
 							</li>
 						</ul>

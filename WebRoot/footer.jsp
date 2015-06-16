@@ -61,7 +61,7 @@
 							<li><a href="#">配送费收取标准</a></li>
 							<li><a href="#">在线自动退换货</a></li>
 							<li><a href="#">退换货政策</a></li>
-							<li><a href="#">帮助</a></li>
+							<li><a href="admin_login.jsp">帮助</a></li>
 						</ul>
 					</li>
 				</ul>

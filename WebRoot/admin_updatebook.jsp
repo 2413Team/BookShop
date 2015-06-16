@@ -23,44 +23,46 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <form method="post" action="AdminBookServlet?act=addbook">
+  <div style="width: 300px; margin: 0 auto;">
+    <form method="post" action="AdminBookServlet?act=updatebook&bookid=${sessionScope.book.id}">
     	<label>书名</label>
     	<br />
-    	<input type="text" name="Title">
+    	<input type="text" name="Title" value="${sessionScope.book.title}">
     	<br />
     	<label>作者</label>
     	<br />
-    	<input type="text" name="Author">
+    	<input type="text" name="Author" value="${sessionScope.book.author}">
     	<br />
     	<label>ISBN</label>
     	<br />
-    	<input type="text" name="ISBN">
+    	<input type="text" name="ISBN" value="${sessionScope.book.iSBN}">
     	<br />
     	<label>总字数</label>
     	<br />
-    	<input type="text" name="WordsCount">
+    	<input type="text" name="WordsCount" value="${sessionScope.book.wordsCount}">
     	<br />
     	<label>单价</label>
     	<br />
-    	<input type="text" name="UnitPrice">
+    	<input type="text" name="UnitPrice" value="${sessionScope.book.unitPrice}">
     	<br />
     	<label>图书简介</label>
     	<br />
-    	<textarea rows="5" cols="20" name="ContentDescription" ></textarea>
+    	<textarea rows="5" cols="20" name="ContentDescription"  >${sessionScope.book.contentDescription}</textarea>
     	<br />
     	<label>作者简介</label>
     	<br />
-    	<textarea rows="5" cols="20" name="AurhorDescription" ></textarea>
+    	<textarea rows="5" cols="20" name="AurhorDescription" >${sessionScope.book.aurhorDescription}</textarea>
     	<br />
     	<label>内容简介</label>
     	<br />
-    	<textarea rows="5" cols="20" name="EditorComment" ></textarea>
+    	<textarea rows="5" cols="20" name="EditorComment" >${sessionScope.book.editorComment}</textarea>
     	<br />
     	<label>目录</label>
     	<br />
-    	<textarea rows="5" cols="20" name="Toc" ></textarea>
+    	<textarea rows="5" cols="20" name="Toc" >${sessionScope.book.tOc}</textarea>
     	<br />
     	<input type="submit" value="提交">
     </form>
+    </div>
   </body>
 </html>

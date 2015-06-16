@@ -45,4 +45,28 @@ public class CategoriesDao{
 		}
 		return null;
 	}
+	
+	public List<Categories> getCategoriesForAdmin(String key){
+		Categories cat;
+		list=new ArrayList<Categories>();
+		try {
+			if(!conn.isClosed()){
+				String sql ="SELECT * FROM categories WHERE name LIKE ?";
+				PreparedStatement stmt=conn.prepareStatement(sql);
+				stmt.setString(1, "%"+key+"%");
+				ResultSet set=stmt.executeQuery();
+				while(set.next()){
+					cat=new Categories();
+					cat.setId(set.getInt("id"));
+					cat.setName(set.getString("name"));
+					list.add(cat);
+				}
+				return list;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

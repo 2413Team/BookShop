@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.newBookShopWeb.dao.BookDao;
+import com.newBookShopWeb.dao.CategoriesDao;
 import com.newBookShopWeb.entity.Book;
+import com.newBookShopWeb.entity.Categories;
 
 @WebServlet("/BookServlet")
 public class BookServlet extends HttpServlet {
@@ -62,12 +64,35 @@ public class BookServlet extends HttpServlet {
 			quantitybook(request,response);
 		if(act.equals("detailbook"))
 			detailbook(request, response);
+		if(act.equals("getbyid"))
+			getBookById(request,response);
+		if(act.equals("getcategories"))
+			getCategoriesByName(request, response);
 	}
 	
 	protected void getBookByName(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		dao=new BookDao();
 		List<Book> list =new ArrayList<Book>();
 		list=dao.getBookByName(request.getParameter("Name"));
+		HttpSession out=request.getSession();
+		out.setAttribute("List", list);
+		response.sendRedirect("admin_book.jsp");
+	}
+	
+	protected void getCategoriesByName(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		CategoriesDao categoriesDao=new CategoriesDao();
+		List<Categories> list =new ArrayList<Categories>();
+		list=categoriesDao.getCategoriesForAdmin(request.getParameter("Name"));
+		HttpSession out=request.getSession();
+		out.setAttribute("List", list);
+		response.sendRedirect("admin_categories.jsp");
+	}
+	
+	protected void getBookById(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		dao=new BookDao();
+		Book book;
+		List<Book> list=new ArrayList<Book>();
+		list=dao.getBookById(Integer.parseInt(request.getParameter("bookid")));
 		HttpSession out=request.getSession();
 		out.setAttribute("List", list);
 		response.sendRedirect("admin_book.jsp");
