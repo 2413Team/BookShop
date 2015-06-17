@@ -33,11 +33,7 @@ public class AdminDao implements Dao {
 		ouruser.setId(0);
 		try {
 			if (!conn.isClosed()) {
-				System.out.println("进入了链接");
-				String sql="SELECT * FROM users WHERE users.LoginId=? AND users.LoginPwd=?"
-							+" AND users.UserStateId=(SELECT userstates.Id FROM userstates WHERE userstates.Name='正常')"
-							+" AND users.UserRoleId=(SELECT userroles.Id FROM userroles WHERE userroles.Name='管理员')";
-				PreparedStatement stmt=conn.prepareStatement(sql);
+				CallableStatement stmt=conn.prepareCall("CALL pro_adminlogin(?,?)");
 				stmt.setString(1, user.getLoginId());
 				stmt.setString(2, user.getLoginPwd());
 				ResultSet set = stmt.executeQuery();

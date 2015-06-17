@@ -26,7 +26,7 @@
               <li><a href="#">客户服务</a></li>
               <li><a href="admin_book.jsp">图书管理</a></li>
               <li><a href="admin_categories.jsp">图书种类管理</a></li>
-              <li><a href="#">用户管理</a></li>
+              <li><a href="admin_user.jsp">用户管理</a></li>
          </ul>
     </div>
           <div class="search">

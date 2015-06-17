@@ -30,7 +30,7 @@
          </ul>
     </div>
           <div class="search">
-            <form action="BookServlet?act=get" method="post" id=search name="search">
+            <form action="AdminUserServlet?act=getUser" method="post" id=search name="search">
                       <input type="text"  value=""  id="text"  name="Name"  class="text"/>
                       <input type="submit"  value="搜索"  id="btn"  name="btn"  class="btn"/>
             </form>      
@@ -45,13 +45,13 @@
 						<ul style="list-style: none;">
 							<li>
 								<div style="overflow: hidden;">
-									<a href="BookServlet?act=detailbook&bookisbn=${book.iSBN}'">${b.title}</a>
+									<a href="">${b.loginId}</a>
 								</div>
-								<div style="float: left;" class="unitprice">￥${b.unitPrice}</div>
-								<div style="float: left; margin-left: 15px; ">${b.author}</div>
+								<div style="float: left;" class="unitprice">${b.name}</div>
+								<div style="float: left; margin-left: 15px; ">${b.mail}</div>
 								<div style="float: right; margin-right: 15px;">
-									<a href="AdminBookServlet?act=getbook&bookisbn=${b.iSBN}">修改</a>
-									<a href="AdminBookServlet?act=deletebook&bookid=${b.id}">删除</a>
+									<a href="AdminUserServlet?act=getOneUser&userid=${b.id}">修改</a>
+									<a href="AdminUserServlet?act=deleteUser&userid=${b.id}">删除</a>
 								</div>
 							</li>
 						</ul>
@@ -61,7 +61,7 @@
 		</c:catch>
 		<c:out value="${e}"></c:out>
 	</div>
-	<a href="javascript:window.open('admin_addbook.jsp','newwindow','height=600,width=250,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no')"  class="btnAdd">添加</a>
+	<a href="javascript:window.open('admin_adduser.jsp','newwindow','height=600,width=250,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no')"  class="btnAdd">添加</a>
 
 </body>
 </html>

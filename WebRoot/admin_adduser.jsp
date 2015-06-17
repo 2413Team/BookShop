@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'admin_addcategories.jsp' starting page</title>
+    <title>My JSP 'admin_addbook.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -23,14 +23,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <div style="width: 300px; margin: 0 auto;">
-    <form action="AdminCategoriesServlet?act=updateCategories&categoriesId=${sessionScope.categories.id}" method="post">
-    	<label>种类名字</label>
-    	<br/>
-    	<input type="text"  name="categoriesName" value="${sessionScope.categories.name}"/>
-    	<br/>
-    	<input type="submit" value="提交"/>
+    <form method="post" action="AdminUserServlet?act=addUser">
+    	<label>登录名</label>
+    	<br />
+    	<input type="text" name="loginId">
+    	<br />
+    	<label>登陆密码</label>
+    	<br />
+    	<input type="text" name="loginPwd">
+    	<br />
+    	<label>姓名</label>
+    	<br />
+    	<input type="text" name="name">
+    	<br />
+    	<label>地址</label>
+    	<br />
+    	<input type="text" name="address">
+    	<br />
+    	<label>电话</label>
+    	<br />
+    	<input type="text" name="phone">
+    	<br />
+    	<label>邮箱</label>
+    	<br />
+    	<input type="text" name="mail">
+    	<br />
+    	<input type="submit" value="提交">
     </form>
-    </div>
   </body>
 </html>
